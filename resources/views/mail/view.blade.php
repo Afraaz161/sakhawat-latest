@@ -1,0 +1,1 @@
+<h1>Congraturaltions ! you have successfully subscribe to our site </h1>
