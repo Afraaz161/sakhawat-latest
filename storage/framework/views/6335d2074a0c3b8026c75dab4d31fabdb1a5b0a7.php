@@ -42,7 +42,7 @@
 					<?php echo csrf_field(); ?>
 						<span class="login100-form-title p-b-49">
 							
-							<img src="<?php echo e(asset('https://wearewebeasy.com/wp-content/uploads/2020/01/logopng.png')); ?>" alt="No Image" style="width:300px;">
+							<img src="<?php echo e(asset('items/Untitled-1.jpg')); ?>" alt="No Image avbdn" style="width:300px;">
 						</span>
 					<div class="messages" style="margin-bottom:20px !important;">
 						<?php echo $__env->make('include/messages', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>

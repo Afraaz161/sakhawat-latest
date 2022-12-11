@@ -75,7 +75,7 @@ Route::post('/create-new-account', [App\Http\Controllers\AccountController::clas
 
 
 // Salesman
- Route::get('/users', [App\Http\Controllers\NewUserController::class, 'users'])->name('users');
+ Route::get('/users', [App\Http\Controllers\UserController::class, 'users'])->name('users');
 Route::view('/user','users.users-list');
 Route::post('/users/new-user-action', [App\Http\Controllers\UserController::class, 'new_user_action'])->name('users.new-user-action');
 

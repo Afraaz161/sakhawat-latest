@@ -40,7 +40,7 @@ class FrontController extends Controller
     }
 
     public function check_credentials(Request $request){
-        // dd($request->all());
+       
         $this->validate($request, [
             'email'  => 'required',
             'password'  => 'required',

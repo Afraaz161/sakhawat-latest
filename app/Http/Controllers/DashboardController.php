@@ -23,7 +23,7 @@ class DashboardController extends Controller
         $sales = count(Sale::all());
         $profit = SaleItem::sum('profit');
         $receivables = AccountSale::sum('balance');
-        // dd($receivables);
+        dd($sales);
         return view('dashboard.dashboard', ['items' => $items, 'purchases' => $purchases, 'sales' => $sales, 'profit' => $profit, 'receivables' =>$receivables]);
     }
 
