@@ -591,7 +591,7 @@
   'session' => 
   array (
     'driver' => 'file',
-    'lifetime' => '1',
+    'lifetime' => '123',
     'expire_on_close' => false,
     'encrypt' => false,
     'files' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\framework/sessions',
