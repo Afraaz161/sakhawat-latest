@@ -21,7 +21,7 @@ class CategoryController extends Controller
         if(!Auth::user()){
             return redirect()->route('login-page');
         }
-        $categories = Category::orderBy('id', 'desc')->get();
+        $categories = Category::where('status',1)->orderBy('id', 'desc')->get();
         return view('categories.categories-list', ['categories' => $categories]);
     }
 
@@ -55,7 +55,9 @@ class CategoryController extends Controller
             return redirect()->route('login-page');
         }
         $cat = Category::find($id);
-        $cat->delete();
+        $cat->status = false;
+        $cat->save();
+        // $cat->delete();
         $request->session()->flash('alert-success', 'One Category removed.');
         return back();
     }

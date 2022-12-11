@@ -204,7 +204,7 @@
                                               {{-- <td>{{ $category->u_name }}</td> --}}
                                               <td>
                                                 <a href="{{route('edit-category', ['id' =>$category->id])}}" class="btn btn-primary btn-edit-category" style="color: #fff;"><i class="fa fa-edit"></i></a>
-                                                {{-- <a href="{{ route('categories.delete-category', ['id'=>$category->id]) }}" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a> --}}
+                                               <a href="{{ route('categories.delete-category', ['id'=>$category->id]) }}" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a> 
                                               </td>
                                           </tr>
                                         @endforeach

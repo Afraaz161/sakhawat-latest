@@ -193,7 +193,7 @@
                                               
                                               <td>
                                                 <a href="<?php echo e(route('edit-category', ['id' =>$category->id])); ?>" class="btn btn-primary btn-edit-category" style="color: #fff;"><i class="fa fa-edit"></i></a>
-                                                
+                                               <a href="<?php echo e(route('categories.delete-category', ['id'=>$category->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a> 
                                               </td>
                                           </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
