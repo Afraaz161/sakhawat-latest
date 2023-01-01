@@ -50,8 +50,8 @@ class AccountController extends Controller
             'address' => $request->address,
             'phone' => $request->phone,
             'type' => $request->type,
-            'ntn_no' => $request->ntn,
-            'sales_tax_no' => $request->sales_tax,
+            // 'ntn_no' => $request->ntn,
+            // 'sales_tax_no' => $request->sales_tax,
         ]);
         $request->session()->flash('alert-success', 'Account updated.');
         return redirect()->route('accounts');
@@ -108,8 +108,8 @@ class AccountController extends Controller
         $account->phone = $request->phone;
         $account->email = $request->email;
         $account->type = $request->type;
-        $account->ntn_no = $request->ntn;
-        $account->sales_tax_no = $request->sales_tax;
+        // $account->ntn_no = $request->ntn;
+        // $account->sales_tax_no = $request->sales_tax;
         $account->save();
 
         $account_purchase = new AccountPurchase();

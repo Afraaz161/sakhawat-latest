@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TestUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SalesController;
 
@@ -13,7 +14,9 @@ use App\Http\Controllers\SalesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::controller(TestUserController::class)->group(function () {
+    Route::get('test','index');
+});
 // Route::get('/', [App\Http\Controllers\FrontController::class, 'index'])->name('index');
 Route::get('/clear', function() {
     Artisan::call('cache:clear');

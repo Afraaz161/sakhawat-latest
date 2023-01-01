@@ -182,26 +182,10 @@
                                                 <option value="Customer">Customer</option>
                                                 <option value="Vendor">Vendor</option>
                                                 <option value="Employee">Employee</option>
-                                                <option value="Cash">Cash</option>
-                                                <option value="Expense">Expense</option>
-                                                <option value="Income">Income</option>
-                                                <option value="Sales">Sales</option>
-                                                <option value="Purchase">Purchase</option>
                                               </select>
                                             </div>
                                           </div>
-                                          <div class="col-lg-12">
-                                            <div class="form-group">
-                                              <label for="ntn">NTN#</label>
-                                              <input type="text" name="ntn" class="form-control" id="ntn">
-                                            </div>
-                                          </div>
-                                          <div class="col-lg-12">
-                                            <div class="form-group">
-                                              <label for="sales_tax">Sales Tax #</label>
-                                              <input type="text" name="sales_tax" class="form-control" id="sales_tax">
-                                            </div>
-                                          </div>
+                              
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-submit">Submit</button>
                                     </form>
@@ -227,7 +211,7 @@
                                               <th data-field="email">Email</th>
                                               <th data-field="phone">Address</th>
                                               <th data-field="type">Type</th>
-                                              <th data-field="ntn">NTN#</th>
+                                              <!-- <th data-field="ntn">NTN#</th> -->
                                               <th data-field="action">Action</th>
                                           </tr>
                                       </thead>
@@ -243,7 +227,7 @@
                                               <td><?php echo e($item->email); ?></td>
                                               <td><?php echo e($item->address); ?></td>
                                               <td><?php echo e($item->type); ?></td>
-                                              <td><?php echo e($item->ntn_no); ?></td>
+                                              <!-- <td><?php echo e($item->ntn_no); ?></td> -->
                                               <td>
                                                 <a href="<?php echo e(route('account.edit-account', ['id'=>$item->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-edit"></i></a>
                                                 <a href="<?php echo e(route('account.delete-account', ['id'=>$item->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a>

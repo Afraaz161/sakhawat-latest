@@ -107,7 +107,7 @@
                                                 <label for="invoice">Invoice#<label>
                                                 <input type="number" value="<?php echo e($invoice); ?>" class="form-control" name="invoice" id="invoice" disabled>
                                             </div>
-                                            <div class="col-lg-2" style="margin-top: 4px;">
+                                            <!-- <div class="col-lg-2" style="margin-top: 4px;">
                                                 <label for="gd">GD#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
                                                 <input type="text" class="form-control" name="gd" id="gd">
                                             </div>
@@ -118,17 +118,17 @@
                                             <div class="col-lg-1">
                                                 <label for="sales_tax">Sales Tax (%)</label>
                                                 <input type="number" value="17" class="form-control" name="sales_tax" id="sales_tax">
-                                            </div>
+                                            </div> -->
                                             <div class="col-lg-4" id="show-vendors-section">
 
                                             </div>
-                                            <div class="col-lg-1">
+                                            <div class="col-lg-3">
                                                 <div class="form-group">
                                                     <label for="add_new_vendor">Add New&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
                                                     <button type="button" id="add_new_vendor" class="btn btn-primary" data-toggle="modal" data-target="#myModalVendor"><i class="fa fa-plus"></i> Add new</button>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-2">
+                                            <div class="col-lg-4">
                                                 <div class="form-group">
                                                     <label for="current_date">Date</label>
                                                     <input type="date" class="form-control" name="current_date" id="current_date">
@@ -190,7 +190,7 @@
                                                 <div class="">
                                                     <div class="clear"></div>
                                                 </div>
-                                                <div class="row" style="margin-top: 20px;">
+                                                <!-- <div class="row" style="margin-top: 20px;">
                                                     <div class="col-lg-12">
                                                         <input type="radio" id="perc-discount" name="discount_type" value="perc">
                                                         <label for="perc-discount">% Discount</label>
@@ -203,7 +203,7 @@
                                                         <label for="charity">Charity</label>
                                                         <input type="number" value="1" class="form-control" name="charity" id="charity">
                                                     </div>
-                                                </div>
+                                                </div> -->
                                                 
                                                 <div class="row" style="margin-top: 20px;">
                                                     <div class="col-lg-2">
@@ -212,10 +212,10 @@
                                                             <input type="number" class="form-control" value="0" name="total_bill" id="total_bill" readonly>
                                                         </div>
                                                     </div>
-                                                    <div class="col-lg-2">
+                                                    <!-- <div class="col-lg-2">
                                                         <label for="sales_tax_price">Sales Tax Price</label>
                                                         <input type="number" value="0" class="form-control" name="sales_tax_price" id="sales_tax_price">
-                                                    </div>
+                                                    </div> -->
                                                     <div class="col-lg-2">
                                                         <div class="form-group">
                                                             <label for="previous_due">Previous Due</label>

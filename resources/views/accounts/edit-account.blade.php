@@ -193,7 +193,7 @@
                                               </select>
                                             </div>
                                           </div>
-                                          <div class="col-lg-12">
+                                          <!-- <div class="col-lg-12">
                                             <div class="form-group">
                                               <label for="ntn">NTN#</label>
                                               <input type="text" name="ntn" value="{{$account->ntn_no}}" class="form-control" id="ntn">
@@ -204,7 +204,7 @@
                                               <label for="sales_tax">Sales Tax #</label>
                                               <input type="text" name="sales_tax" value="{{$account->sales_tax_no}}" class="form-control" id="sales_tax">
                                             </div>
-                                          </div>
+                                          </div> -->
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-submit">Submit</button>
                                     </form>
@@ -226,7 +226,6 @@
                                           <tr>
                                               <th data-field="id">SR#</th>
                                               <th data-field="status">Name</th>
-                                              <th data-field="u_name">نام</th>
                                               <th data-field="date">Phone</th>
                                               <th data-field="phone">Address</th>
                                               <th data-field="type">Type</th>
@@ -241,7 +240,7 @@
                                           <tr>
                                               <td>{{ $index }}</td>
                                               <td>{{ $item->name }}</td>
-                                              <td>{{ $item->u_name }}</td>
+                                             
                                               <td>{{ $item->phone }}</td>
                                               <td>{{ $item->address }}</td>
                                               <td>{{ $item->type }}</td>

@@ -184,9 +184,7 @@
                                                                 <th data-field="id">Customer</th>
                                                                 <th data-field="date">Date</th>
                                                                 <th data-field="country">Total</th>
-                                                                <th data-field="sale tax">Sales Tax</th>
                                                                 <th data-field="previous">Previous Due</th>
-                                                                <th data-field="payment method">Discount</th>
                                                                 <th data-field="receivable">Receivable</th>
                                                                 <th data-field="received">Received</th>
                                                                 <th data-field="sale man">Sales Man</th>
@@ -204,17 +202,17 @@
                                                                   @endif
                                                                     <td>{{ $sale->current_date }}</td>
                                                                     <td>{{ $sale->total_bill }}</td>
-                                                                    <td>{{ $sale->sales_tax }} % : {{$sale->sales_tax_price}}</td>
+                                                                    <!-- <td>{{ $sale->sales_tax }} % : {{$sale->sales_tax_price}}</td> -->
                                                                     <td>{{ $sale->previous_due }}</td>
-                                                                    <td>
-                                                                      @if ($sale->discount_type)
-                                                                        @if ($sale->discount_type == 'perc')
-                                                                        {{$sale->discount}} %
-                                                                        @else
-                                                                        {{$sale->discount}} - PKR
+                                                                      <!-- <td>
+                                                                        @if ($sale->discount_type)
+                                                                          @if ($sale->discount_type == 'perc')
+                                                                          {{$sale->discount}} %
+                                                                          @else
+                                                                          {{$sale->discount}} - PKR
+                                                                          @endif
                                                                         @endif
-                                                                      @endif
-                                                                    </td>
+                                                                      </td> -->
                                                                     <td>{{ $sale->receivable }}</td>
                                                                     <td>{{ $sale->received }}</td>
                                                                     <td>{{ $sale->user['name'] }}</td>
