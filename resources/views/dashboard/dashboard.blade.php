@@ -78,7 +78,7 @@
         </div>
         <!-- Header top area start-->
         <div class="content-inner-all">
-            @include('layout.header-top-area')
+            {{-- @include('layout.header-top-area') --}}
             <!-- Header top area end-->
             <!-- Breadcome start-->
             <div class="breadcome-area mg-b-30 small-dn">
@@ -97,7 +97,7 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <ul class="breadcome-menu">
-                                            <li><a href="{{ route('dashboard') }}">Home</a> <span class="bread-slash">/</span>
+                                            <li><a href="{{ route('admin-dashboard') }}">Home</a> <span class="bread-slash">/</span>
                                             </li>
                                             <li><span class="bread-blod">Dashboard</span>
                                             </li>
@@ -146,9 +146,9 @@
             <!-- income order visit user Start -->
             <div class="income-order-visit-user-area">
                 <div class="container-fluid">
-                    @if (Auth::user()->type == 'Admin')
+                 
                         <div class="row" style="margin-bottom: 15px;">
-                            <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>POINT OF SALE</b> Dashboard</h1>
+                            <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>Asjad Properrty</b> Dashboard</h1>
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
@@ -307,9 +307,7 @@
                                 <a href="" class="btn btn-info btn-dashboard">Products</a>
                             </div>
                         </div>
-                    @else
-                        <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>POINT OF SALE</b> Dashboard</h1>
-                    @endif
+                 
                 </div>
             </div>
         </div>
