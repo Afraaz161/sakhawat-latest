@@ -34,15 +34,15 @@
                 <a href="{{ route('users') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Users</span></a>
             </li>
            
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="{{ route('categories') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list"></i> <span class="mini-dn">Categories</span></a>
-            </li>
-            {{-- <li class="nav-item">
+            </li> -->
+            <!-- {{-- <li class="nav-item">
                 <a href="{{ route('sub-categories') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list"></i> <span class="mini-dn">Sub-Categories</span></a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('brands') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list"></i> <span class="mini-dn">Brands</span></a>
-            </li> --}}
+            </li> --}} -->
             {{-- <li class="nav-item">
                 <a href="{{ route('manufactures') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list"></i> <span class="mini-dn">Manufactures</span></a>
             </li> --}}
@@ -78,12 +78,12 @@
                 </div>
             </li>
             @if (Auth::user()->type == 'Admin')
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="{{ route('stock-management') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list-alt"></i> <span class="mini-dn">Stock Management</span></a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
                 <a href="{{ route('reorder-items') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list-alt"></i> <span class="mini-dn">Re-Orders</span></a>
-            </li>
+            </li> -->
             {{-- <li class="nav-item">
                 <a href="{{ route('generate-barcode') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-barcode"></i> <span class="mini-dn">Barcodes</span></a>
             </li> --}}

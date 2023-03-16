@@ -32,10 +32,10 @@
                 <a href="<?php echo e(route('users')); ?>" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Users</span></a>
             </li>
            
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="<?php echo e(route('categories')); ?>" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list"></i> <span class="mini-dn">Categories</span></a>
-            </li>
-            
+            </li> -->
+            <!--  -->
             
             <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-shopping-basket"></i> <span class="mini-dn">Purchase</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
@@ -67,12 +67,12 @@
                 </div>
             </li>
             <?php if(Auth::user()->type == 'Admin'): ?>
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a href="<?php echo e(route('stock-management')); ?>" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list-alt"></i> <span class="mini-dn">Stock Management</span></a>
-            </li>
-            <li class="nav-item">
+            </li> -->
+            <!-- <li class="nav-item">
                 <a href="<?php echo e(route('reorder-items')); ?>" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list-alt"></i> <span class="mini-dn">Re-Orders</span></a>
-            </li>
+            </li> -->
             
             
             
