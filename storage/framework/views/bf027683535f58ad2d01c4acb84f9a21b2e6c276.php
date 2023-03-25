@@ -174,13 +174,17 @@
                                           <div class="col-lg-12">
                                             <div class="form-group">
                                               <label for="type">Type</label>
+                                              <?php if($account->type=="Customer"): ?>
                                               <select name="type" id="type" class="form-control">
                                                 <option value="<?php echo e($account->type); ?>" selected><?php echo e($account->type); ?></option>
-                                                <option value="Customer">Customer - کسٹمر</option>
-                                                
-                                                
-                                                
+                                                <option value="Customer">Customer</option>
                                               </select>
+                                              <?php else: ?>
+                                              <select name="type" id="type" class="form-control">
+                                                <option value="<?php echo e($account->type); ?>" selected><?php echo e($account->type); ?></option>
+                                                <option value="Customer">Vendor</option>
+                                              </select>
+                                              <?php endif; ?>
                                             </div>
                                           </div>
                                           <!-- <div class="col-lg-12">

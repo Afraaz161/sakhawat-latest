@@ -50,7 +50,7 @@ class ItemController extends Controller
         $item->unit = $request->unit;
         $item->stock = $request->stock;
         $item->price = $request->rate;
-        $item->stock = 0;
+        // $item->stock = 0;
         // upload multiple image
         if($request->file('image')){
             $image = $request->file('image');

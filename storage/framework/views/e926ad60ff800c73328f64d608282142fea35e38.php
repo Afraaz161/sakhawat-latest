@@ -215,7 +215,7 @@
                                               <td><input type="password" name="pass" class="myInput" value="<?php echo e($user->password2); ?>"><span toggle=".myInput" class="fa fa-fw fa-eye field-icon toggle-password"></span></td>
                                               <td><?php echo e($user->type); ?></td>
                                               <td>
-                                                <a href="<?php echo e(route('categories.delete-category', ['id'=>$user->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a>
+                                                <a href="<?php echo e(route('users.delete-user-account', ['id'=>$user->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a>
                                               </td>
                                           </tr>
                                         <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
