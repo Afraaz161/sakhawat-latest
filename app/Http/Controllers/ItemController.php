@@ -44,7 +44,7 @@ class ItemController extends Controller
         $item = new Item();
         $item->name = $request->name;
         $item->category_id = $request->category;
-        $item->reorder_value = $request->reorder_value;
+        // $item->reorder_value = $request->reorder_value;
         $item->required = $request->required;
         $item->description = $request->description;
         $item->unit = $request->unit;
@@ -135,11 +135,11 @@ class ItemController extends Controller
             'name' => $request->name,
             'price' => $request->rate,
             'stock' => $request->stock,
-            'reorder_value' => $request->reorder_value,
+            // 'reorder_value' => $request->reorder_value,
             'unit' => $request->unit,
         ]);
         $request->session()->flash('alert-success', 'Item updated successfully.');
-        return back();
+        return  redirect()->route('my-items');
     }
 
     public function add_manufacture(Request $request){
@@ -157,6 +157,7 @@ class ItemController extends Controller
     }
 
     public function add_category(Request $request){
+        // dd($request);
         if(!Auth::user()){
             return redirect()->route('login-page');
         }

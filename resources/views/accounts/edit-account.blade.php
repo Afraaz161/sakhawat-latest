@@ -183,13 +183,13 @@
                                               <select name="type" id="type" class="form-control">
                                                 <option value="{{ $account->type }}" selected>{{ $account->type }}</option>
                                                 <option value="Customer">Customer - کسٹمر</option>
-                                                <option value="Vendor">Vendor - وینڈر</option>
-                                                <option value="Employee">Employee - ملازم</option>
-                                                <option value="Cash">Cash - کیش</option>
+                                                {{-- <option value="Vendor">Vendor - وینڈر</option> --}}
+                                                {{-- <option value="Employee">Employee - ملازم</option> --}}
+                                                {{-- <option value="Cash">Cash - کیش</option>
                                                 <option value="Expense">Expense - اخراجات</option>
                                                 <option value="Income">Income - انکم</option>
                                                 <option value="Sales">Sales - فروخت</option>
-                                                <option value="Purchase">Purchase - خرید </option>
+                                                <option value="Purchase">Purchase - خرید </option> --}}
                                               </select>
                                             </div>
                                           </div>

@@ -212,12 +212,12 @@
                                                     <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="{{ old('stock') }}">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
+                                            {{-- <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="reorder_value">Re-Order</label>
                                                     <input type="text" tabindex="7" class="form-control" name="reorder_value" id="reorder_value" value="{{ old('reorder_value') }}">
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="unit">Unit</label>

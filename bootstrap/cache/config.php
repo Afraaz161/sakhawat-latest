@@ -180,7 +180,7 @@
       'file' => 
       array (
         'driver' => 'file',
-        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\framework/cache/data',
+        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\framework/cache/data',
       ),
       'memcached' => 
       array (
@@ -257,7 +257,7 @@
       array (
         'driver' => 'sqlite',
         'url' => NULL,
-        'database' => 'sakhawat',
+        'database' => 'wahab',
         'prefix' => '',
         'foreign_key_constraints' => true,
       ),
@@ -267,7 +267,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'sakhawat',
+        'database' => 'wahab',
         'username' => 'root',
         'password' => '',
         'unix_socket' => '',
@@ -287,7 +287,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'sakhawat',
+        'database' => 'wahab',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -302,7 +302,7 @@
         'url' => NULL,
         'host' => '127.0.0.1',
         'port' => '3306',
-        'database' => 'sakhawat',
+        'database' => 'wahab',
         'username' => 'root',
         'password' => '',
         'charset' => 'utf8',
@@ -346,12 +346,12 @@
       'local' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\app',
+        'root' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\app',
       ),
       'public' => 
       array (
         'driver' => 'local',
-        'root' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\app/public',
+        'root' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\app/public',
         'url' => 'http://pos2.test/storage',
         'visibility' => 'public',
       ),
@@ -368,7 +368,7 @@
     ),
     'links' => 
     array (
-      'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\public\\storage' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\app/public',
+      'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\public\\storage' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\app/public',
     ),
   ),
   'hashing' => 
@@ -402,13 +402,13 @@
       'single' => 
       array (
         'driver' => 'single',
-        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\logs/laravel.log',
         'level' => 'debug',
       ),
       'daily' => 
       array (
         'driver' => 'daily',
-        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\logs/laravel.log',
         'level' => 'debug',
         'days' => 14,
       ),
@@ -458,7 +458,7 @@
       ),
       'emergency' => 
       array (
-        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\logs/laravel.log',
+        'path' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\logs/laravel.log',
       ),
     ),
   ),
@@ -515,7 +515,7 @@
       'theme' => 'default',
       'paths' => 
       array (
-        0 => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\resources\\views/vendor/mail',
+        0 => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\resources\\views/vendor/mail',
       ),
     ),
   ),
@@ -594,7 +594,7 @@
     'lifetime' => '123',
     'expire_on_close' => false,
     'encrypt' => false,
-    'files' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\framework/sessions',
+    'files' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\framework/sessions',
     'connection' => NULL,
     'table' => 'sessions',
     'store' => NULL,
@@ -614,9 +614,9 @@
   array (
     'paths' => 
     array (
-      0 => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\resources\\views',
+      0 => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\resources\\views',
     ),
-    'compiled' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\projects\\sakhawat-latest\\storage\\framework\\views',
+    'compiled' => 'C:\\Users\\afraa\\OneDrive\\Desktop\\TestProject\\wahab\\storage\\framework\\views',
   ),
   'flare' => 
   array (
