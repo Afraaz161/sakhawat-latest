@@ -171,6 +171,8 @@ class PaymentController extends Controller
 
     public function vendorPaymentDetail($id){
         $payments = AccountPurchase::with(['customer'])->where('customer_id', $id)->get();
-        return view('payment.purchase-payment-detail', ['payments' => $payments]);
+        $total = AccountPurchase::with(['customer'])->where('customer_id', $id)->sum('total');
+        $paid = AccountPurchase::with(['customer'])->where('customer_id', $id)->sum('paid');
+        return view('payment.purchase-payment-detail', ['payments' => $payments,'total'=>$total,'paid'=>$paid]);
     }
 }

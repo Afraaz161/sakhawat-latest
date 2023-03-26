@@ -53,6 +53,21 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo e(asset('js/vendor/modernizr-2.8.3.min.js')); ?>"></script>
+    <style>
+      .badge{
+        min-width: 10px;
+        padding: 5px 15px;
+        font-size: 15px;
+        font-weight: 700;
+        line-height: 1;
+        color: #fff;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        background-color: #377f24;
+        border-radius: 15px;
+      }
+    </style>
 </head>
 
 <body class="materialdesign">
@@ -74,17 +89,14 @@
                                 <div class="row">
                                     <div class="col-lg-6">
                                         <div class="breadcome-heading">
-                                            <form role="search" class="">
-												<input type="text" placeholder="Search..." class="form-control">
-												<a href=""><i class="fa fa-search"></i></a>
-											</form>
+                                            
                                         </div>
                                     </div>
                                     <div class="col-lg-6">
                                         <ul class="breadcome-menu">
                                             <li><a href="<?php echo e(route('dashboard')); ?>">Home</a> <span class="bread-slash">/</span>
                                             </li>
-                                            <li><span class="bread-blod">Purchases</span>
+                                            <li><span class="bread-blod">Purchase Detail</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -117,7 +129,7 @@
                                         <ul class="breadcome-menu">
                                             <li><a href="#">Home</a> <span class="bread-slash">/</span>
                                             </li>
-                                            <li><span class="bread-blod">Purchasess</span>
+                                            <li><span class="bread-blod">Purchase Detail</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -137,7 +149,7 @@
                                 <div class="sparkline7-list">
                                     <div class="sparkline7-hd">
                                         <div class="main-spark7-hd">
-                                            <h1><span class="res-ds-n">Receivables Detail</span></h1>
+                                            <h1><span class="res-ds-n">Purchase Detail</span></h1>
                                             <div class="sparkline7-outline-icon">
                                                 <span class="sparkline7-collapse-link"><i class="fa fa-chevron-up"></i></span>
                                                 <span><i class="fa fa-wrench"></i></span>
@@ -153,56 +165,30 @@
                                                         <thead>
                                                             <tr>
                                                                 <th data-field="sr">#</th>
-                                                                <th data-field="vendor">Date</th>
-                                                                <th data-field="total">Total</th>
-                                                                <th data-field="paid">Paid</th>
-                                                                <?php if($total - $paid < 0 ): ?>
-
-                                                                  <th data-field="payable">Receivable</th>
-                                                                
-                                                                <?php else: ?>
-                                                                <th data-field="payable">Payable</th>
-                                                                <?php endif; ?>
-                                                                
+                                                                <th data-field="vendor">Name</th>
+                                                                <th data-field="sku">SKU</th>
+                                                                <th data-field="category">Category</th>
+                                                                <th data-field="item">Price</th>
+                                                                <th data-field="price">Quantity</th>
+                                                                <th data-field="payment_type">Total</th>
                                                             </tr>
-                                                          
                                                         </thead>
                                                         <tbody>
-                                                            <?php $__currentLoopData = $payments; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$payment): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                            <?php
-                                                                $index = $key + 1;
-                                                            ?>
-                                                                <tr>
-                                                                    <td><?php echo e($index); ?></td>
-                                                                    <td><?php echo e($payment->created_at); ?></td>
-                                                                    <td><?php echo e($payment->total); ?></td>
-                                                                    <td><?php echo e($payment->paid); ?></td>
-                                                                    <td class="text-success"><b><?php echo e($payment->balance); ?></b></td>
-                                                                   
-                                                                    
-                                                                </tr>
+                                                            <?php $__currentLoopData = $purchases; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $key=>$purchase): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                                              <tr>
+                                                                  <td><?php echo e($key+1); ?></td>
+                                                                  <td><?php echo e($purchase->name); ?></td>
+                                                                  <?php
+                                                                      $item = \App\Models\Item::whereName($purchase->name)->first();
+                                                                  ?>
+                                                                  <td><span class="badge"><?php echo e(($item->sku)); ?></span></td>
+                                                                  <td><span class="badge"><?php echo e(($item->category['name'])); ?></span></td>
+                                                                  <td><?php echo e($purchase->price); ?></td>
+                                                                  <td><?php echo e($purchase->quantity); ?></td>
+                                                                  <td><?php echo e($purchase->total); ?></td>
+                                                              </tr>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                           
-                                                              
-                                                            
                                                         </tbody>
-                                                        <tfoot>
-                                                          <tr>
-                                                            <td colspan="2"></td>
-                                                            <td colspan="2">Total</td>
-                                                            <td><?php echo e($total); ?></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td colspan="2"></td>
-                                                            <td colspan="2">Total Paid</td>
-                                                            <td><?php echo e($paid); ?></td>
-                                                          </tr>
-                                                          <tr>
-                                                            <td colspan="2"></td>
-                                                            <td colspan="2">balance</td>
-                                                            <td><?php echo e(abs($total - $paid)); ?></td>
-                                                          </tr>
-                                                        </tfoot>
                                                     </table>
                                                 </div>
                                             </div>
@@ -217,21 +203,6 @@
             <!-- Transitions End-->
         </div>
     </div>
-
-    <div class="modal fade" id="add-sale-payment-modal" tabindex="-1" role="dialog" aria-hidden="true">
-        <div class="modal-dialog ms-modal-dialog-width">
-          <div class="modal-content ms-modal-content-width">
-            <div class="modal-header  ms-modal-header-radius-0">
-              <h4 class="modal-title text-white">Add Payment to Sales</h4>
-              <button type="button" class="close  text-white" data-dismiss="modal" aria-hidden="true">x</button>
-            </div>
-            <div class="modal-body p-0 text-left" id="show-add-sale-payment-modal">
-              
-            </div>
-          </div>
-        </div>
-      </div>
-
     <!-- Footer Start-->
     <?php echo $__env->make('layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
     <!-- Footer End-->
@@ -291,31 +262,6 @@
     <!-- main JS
 		============================================ -->
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
-    <script>
-        $(document).ready(function(){
-          // $('#table tbody').on('click', '.btn-add-sale-payment' , function(e)){
-          //   e.preventDefault();
-          //   var id = $(this).attr('data-id');
-          //   alert(id);
-          // };
-            $('#table tbody').on('click', '.btn-add-sale-payment' , function(e){
-                e.preventDefault();
-                var id = $(this).attr('data-id');
-                $.ajax({
-                  type: "GET",
-                  url: "<?php echo e(route('get-sale-payment-detail')); ?>",
-                  data: {id:id},
-                  success: function(data){
-                     document.querySelector("#show-add-sale-payment-modal").innerHTML = (data);
-                     $('#add-sale-payment-modal').modal('show');
-                  },
-                  error: function(data){
-                     alert('Error...!');
-                  }
-                }); 
-            });
-        });
-    </script>
 </body>
 
-</html><?php /**PATH C:\Users\afraa\OneDrive\Desktop\TestProject\wahab\resources\views/payment/purchase-payment-detail.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\Users\afraa\OneDrive\Desktop\TestProject\wahab\resources\views/purchase/purchase-detail.blade.php ENDPATH**/ ?>

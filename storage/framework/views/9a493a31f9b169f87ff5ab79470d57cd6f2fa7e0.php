@@ -189,7 +189,7 @@
                                                                 <th data-field="date">Date</th>
                                                                 <th data-field="vendor">Vendor</th>
                                                                 <th data-field="total">Total</th>
-                                                                <th data-field="item">Payable</th>
+                                                                
                                                                 <th data-field="price">Payment</th>
                                                                 <th data-field="balance">Balance</th>
                                                                 <th data-field="payment_type">Payment Type</th>
@@ -206,13 +206,13 @@
                                                                     <td><?php echo e($purchase->current_date); ?></td>
                                                                     <td><?php echo e($purchase->customer['name']); ?></td>
                                                                     <td><?php echo e($purchase->total_bill); ?></td>
-                                                                    <td><?php echo e($purchase->payable); ?></td>
+                                                                    
                                                                     <td><?php echo e($purchase->payment); ?></td>
                                                                     
-                                                                      <?php if($purchase->payable - $purchase->payment > 0): ?>
-                                                                          <td><span style="background: red !important;color:#fff;padding: 0px 10px;"><?php echo e($purchase->payable - $purchase->payment); ?></span></td>
+                                                                      <?php if($purchase->total_bill - $purchase->payment > 0): ?>
+                                                                          <td><span style="background: red !important;color:#fff;padding: 0px 10px;"><?php echo e($purchase->total_bill  - $purchase->payment); ?></span></td>
                                                                       <?php else: ?>
-                                                                          <td><span style="background: green !important;color:#fff;padding: 0px 10px;"><?php echo e($purchase->payable - $purchase->payment); ?></span></td>
+                                                                          <td><span style="background: green !important;color:#fff;padding: 0px 10px;"><?php echo e($purchase->total_bill  - $purchase->payment); ?></span></td>
                                                                       <?php endif; ?>
                                                                     
                                                                     <td><?php echo e($purchase->payment_method); ?></td>

@@ -196,7 +196,7 @@
                                                                 <th data-field="date">Date</th>
                                                                 <th data-field="vendor">Vendor</th>
                                                                 <th data-field="total">Total</th>
-                                                                <th data-field="item">Payable</th>
+                                                                {{-- <th data-field="item">Payable</th> --}}
                                                                 <th data-field="price">Payment</th>
                                                                 <th data-field="balance">Balance</th>
                                                                 <th data-field="payment_type">Payment Type</th>
@@ -213,13 +213,13 @@
                                                                     <td>{{ $purchase->current_date }}</td>
                                                                     <td>{{ $purchase->customer['name'] }}</td>
                                                                     <td>{{ $purchase->total_bill }}</td>
-                                                                    <td>{{ $purchase->payable }}</td>
+                                                                    {{-- <td>{{ $purchase->payable }}</td> --}}
                                                                     <td>{{ $purchase->payment }}</td>
                                                                     {{-- <td> --}}
-                                                                      @if ($purchase->payable - $purchase->payment > 0)
-                                                                          <td><span style="background: red !important;color:#fff;padding: 0px 10px;">{{ $purchase->payable - $purchase->payment }}</span></td>
+                                                                      @if ($purchase->total_bill - $purchase->payment > 0)
+                                                                          <td><span style="background: red !important;color:#fff;padding: 0px 10px;">{{ $purchase->total_bill  - $purchase->payment }}</span></td>
                                                                       @else
-                                                                          <td><span style="background: green !important;color:#fff;padding: 0px 10px;">{{ $purchase->payable - $purchase->payment }}</span></td>
+                                                                          <td><span style="background: green !important;color:#fff;padding: 0px 10px;">{{$purchase->total_bill  - $purchase->payment }}</span></td>
                                                                       @endif
                                                                     {{-- </td> --}}
                                                                     <td>{{ $purchase->payment_method }}</td>
