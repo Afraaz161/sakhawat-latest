@@ -81,6 +81,8 @@ Route::post('/create-new-account', [App\Http\Controllers\AccountController::clas
  Route::get('/users', [App\Http\Controllers\UserController::class, 'users'])->name('users');
 Route::view('/user','users.users-list');
 Route::post('/users/new-user-action', [App\Http\Controllers\UserController::class, 'new_user_action'])->name('users.new-user-action');
+Route::get('/users/delete-account-action/{id}', [App\Http\Controllers\UserController::class, 'admin_account_delete'])->name('users.delete-user-account');
+
 
 
 // Categories

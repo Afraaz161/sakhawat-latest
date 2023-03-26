@@ -138,15 +138,6 @@
                                     <form action="<?php echo e(route('items.add-item-action')); ?>" method="POST" enctype="multipart/form-data">
                                         <?php echo csrf_field(); ?>
                                         <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label for="name">Item name</label>
-                                                    <input type="text" tabindex="1" class="form-control" name="name" id="name" autofocus required>
-                                                </div>
-                                            </div>
-                                            
-                                        </div>
-                                        <div class="row">
                                             <div class="col-lg-10">
                                                 <div class="form-group show-categories-section" id="show-categories-section">
                                                     
@@ -160,7 +151,14 @@
                                             </div>
                                             
                                         </div>
-                                        
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="form-group">
+                                                    <label for="name">Product name</label>
+                                                    <input type="text" tabindex="1" class="form-control" name="name" id="name" autofocus required>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
@@ -170,7 +168,7 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="rate">Company Rate</label>
+                                                    <label for="rate">Product Price</label>
                                                     <input type="text" tabindex="9" class="form-control" name="rate" id="rate" value="<?php echo e(old('rate')); ?>" required>
                                                 </div>
                                             </div>
@@ -180,12 +178,7 @@
                                                     <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="<?php echo e(old('stock')); ?>">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label for="reorder_value">Re-Order</label>
-                                                    <input type="text" tabindex="7" class="form-control" name="reorder_value" id="reorder_value" value="<?php echo e(old('reorder_value')); ?>">
-                                                </div>
-                                            </div>
+                                            
                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="unit">Unit</label>

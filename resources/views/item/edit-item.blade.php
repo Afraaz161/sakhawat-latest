@@ -175,12 +175,12 @@
                                                     <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="{{ $item->stock }}">
                                                 </div>
                                             </div>
-                                            <div class="col-lg-2">
+                                            {{-- <div class="col-lg-2">
                                                 <div class="form-group">
                                                     <label for="reorder_value">Re-Order Value</label>
                                                     <input type="text" tabindex="7" value="{{ $item->reorder_value }}" class="form-control" name="reorder_value" id="reorder_value" value="{{ old('reorder_value') }}">
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-lg-2">
                                                 <div class="form-group">
                                                     <label for="unit">Unit</label>
@@ -256,12 +256,12 @@
                     <div class="form-resukt"></div>
                     <div class="form-group">
                         <label for="category">Name</label>
-                        <input type="text" tabindex="2" name="add_category" class="form-control" id="add_category" autofocus>
+                        <input type="text" tabindex="2" name="name" class="form-control" id="name" autofocus>
                     </div>
-                    <div class="form-group">
+                    {{-- <div class="form-group">
                         <label for="category_u">نام</label>
                         <input type="text" tabindex="3" name="category_u" class="form-control" id="category_u">
-                    </div>
+                    </div> --}}
                 </div>
                 <div class="modal-footer">
                     <button type="submit" tabindex="4" id="btn-category-submit" class="btn btn-primary">Submit</button>
@@ -403,16 +403,13 @@
 
             $('#btn-category-submit').click(function(e){
                 e.preventDefault();
-                var category = $('#add_category').val();
-                var category_u = $('#category_u').val();
-                // alert(category + category_u);
+                var name = $('#name').val();
                 $.ajax({
                     url: "{{ route('item.add-category') }}",
                     type: "POST",   
                     data: {
                         "_token": "{{ csrf_token() }}",
-                        category: category,
-                        category_u: category_u
+                        name: name,
                         },
                     success: function(data){
                         $('#show-categories-section').empty().append(data);
@@ -420,7 +417,7 @@
 
                     },
                     error: function(data){
-                        alert('Error.....!');
+                        alert('Category not added...!');
                     }
                 });
             });

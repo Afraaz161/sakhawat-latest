@@ -181,7 +181,7 @@
                                               <select name="type" id="type" class="form-control">
                                                 <option value="Customer">Customer</option>
                                                 <option value="Vendor">Vendor</option>
-                                                <option value="Employee">Employee</option>
+                                                
                                               </select>
                                             </div>
                                           </div>
