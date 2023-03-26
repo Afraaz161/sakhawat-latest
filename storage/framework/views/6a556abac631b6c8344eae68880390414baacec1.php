@@ -192,10 +192,9 @@
                                                                 <th data-field="invoice">Invoice#</th>
                                                                 <th data-field="id">Customer</th>
                                                                 <th data-field="date">Date</th>
-                                                                <th data-field="country">Total</th>
-                                                                <th data-field="previous">Previous Due</th>
                                                                 <th data-field="receivable">Receivable</th>
                                                                 <th data-field="received">Received</th>
+                                                                <th data-field="country">Total</th>
                                                                 <th data-field="sale man">Sales Man</th>
                                                                 <th data-field="action">Action</th>
                                                             </tr>
@@ -210,30 +209,16 @@
                                                                         <td><?php echo e($sale->customer['name']); ?></td>
                                                                     <?php endif; ?>
                                                                     <td><?php echo e($sale->current_date); ?></td>
-                                                                    <td><?php echo e($sale->total_bill); ?></td>
-                                                                    <!-- <td><?php echo e($sale->sales_tax); ?> % : <?php echo e($sale->sales_tax_price); ?></td> -->
-                                                                    <td><?php echo e($sale->previous_due); ?></td>
-                                                                    <!-- <td>
-                                                                        <?php if($sale->discount_type): ?>
-<?php if($sale->discount_type == 'perc'): ?>
-<?php echo e($sale->discount); ?> %
-<?php else: ?>
-<?php echo e($sale->discount); ?> - PKR
-<?php endif; ?>
-<?php endif; ?>
-                                                                      </td> -->
                                                                     <td><?php echo e($sale->receivable); ?></td>
                                                                     <td><?php echo e($sale->received); ?></td>
+                                                                    <td><?php echo e($sale->total_bill); ?></td>
                                                                     <td><?php echo e($sale->user['name']); ?></td>
                                                                     <td>
                                                                         <a href="<?php echo e(route('sale.sale-detail', ['id' => $sale->id])); ?>"
                                                                             class="btn btn-primary" title="View Sale"
                                                                             style="color: #fff;"><i
                                                                                 class="fa fa-eye"></i></a>
-                                                                        <a href="<?php echo e(route('sale.sale-edit', ['id' => $sale->id])); ?>"
-                                                                            class="btn btn-primary" title="Edit Sale"
-                                                                            style="color: #fff;"><i
-                                                                                class="fa fa-pencil"></i></a>
+                                                                        
                                                                         <a href="<?php echo e(route('sale.sale-delete', ['id' => $sale->id])); ?>"
                                                                             class="btn btn-primary"
                                                                             title="Delete Sale"
