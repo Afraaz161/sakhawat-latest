@@ -148,7 +148,7 @@
                 <div class="container-fluid">
                  
                         <div class="row" style="margin-bottom: 15px;">
-                            <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>Asjad Properrty</b> Dashboard</h1>
+                            <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>Admin</b> Dashboard</h1>
                         </div>
                         <div class="row">
                             <div class="col-lg-3">
