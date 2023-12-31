@@ -37,11 +37,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="{{ route('Banks') }}">Banks</a>
+                            {{-- <li><a href="{{ route('Banks') }}">Banks</a> --}}
                             </li>
                             <li><a data-toggle="collapse" data-target="#demo" href="#">Website Settings <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="demo" class="collapse dropdown-header-top">
-                                    <li><a href="{{ route('front-sliders') }}">Slider</a>
+                                    {{-- <li><a href="{{ route('front-sliders') }}">Slider</a> --}}
                                     </li>
                                     {{-- <li><a href="{{ route('front-products') }}">Front Products</a>
                                     </li>

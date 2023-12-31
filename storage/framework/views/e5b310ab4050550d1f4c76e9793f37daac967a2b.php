@@ -37,11 +37,11 @@
                                     </li>
                                 </ul>
                             </li>
-                            <li><a href="<?php echo e(route('Banks')); ?>">Banks</a>
+                            
                             </li>
                             <li><a data-toggle="collapse" data-target="#demo" href="#">Website Settings <span class="admin-project-icon adminpro-icon adminpro-down-arrow"></span></a>
                                 <ul id="demo" class="collapse dropdown-header-top">
-                                    <li><a href="<?php echo e(route('front-sliders')); ?>">Slider</a>
+                                    
                                     </li>
                                     
                                 </ul>

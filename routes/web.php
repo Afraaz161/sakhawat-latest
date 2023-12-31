@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SalesController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,6 +60,7 @@ Route::post('/create-new-account', [App\Http\Controllers\AccountController::clas
 
 
 // Salesman
+Route::delete('/users/del/{id}', [App\Http\Controllers\UserController::class, 'user_del'])->name('users.delete-user-account');
  Route::get('/users', [App\Http\Controllers\NewUserController::class, 'users'])->name('users');
 Route::view('/user','users.users-list');
 Route::post('/users/new-user-action', [App\Http\Controllers\UserController::class, 'new_user_action'])->name('users.new-user-action');

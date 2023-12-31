@@ -48,4 +48,14 @@ class UserController extends Controller
     public function admin_check_credentials(Request $request){
         dd($request->all());
     }
+
+    public function user_del(Request $request, int $id){
+       $user =  User::find($id);
+       if($user){
+        $user->delete();
+        $request->session()->flash('alert-success', 'User deleted successfully.');
+       }
+    }
+
+
 }
