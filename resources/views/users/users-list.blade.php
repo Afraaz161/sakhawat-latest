@@ -215,7 +215,7 @@
                                               <td><input type="password" name="pass" class="myInput" value="{{ $user->password2 }}"><span toggle=".myInput" class="fa fa-fw fa-eye field-icon toggle-password"></span></td>
                                               <td>{{ $user->type }}</td>
                                               <td>
-                                                <a href="{{ route('users.delete-user-account', ['id'=>$user->id]) }}" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a>
+                                                {{-- <a href="{{ route('users.delete-user-account', ['id'=>$user->id]) }}" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a> --}}
                                               </td>
                                           </tr>
                                         @endforeach
