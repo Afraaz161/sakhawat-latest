@@ -90,4 +90,4 @@
             
         </ul>
     </div>
-</nav><?php /**PATH E:\projects\pos\sakhawat-latest\resources\views/layout/left-sidebar.blade.php ENDPATH**/ ?>
+</nav><?php /**PATH C:\afraaz-project\pizzaShop\sakhawat-latest\resources\views/layout/left-sidebar.blade.php ENDPATH**/ ?>

@@ -20,4 +20,4 @@
         </ul>
         </div>
     <?php endif; ?>
-</div><?php /**PATH E:\projects\pos\sakhawat-latest\resources\views/include/messages.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\afraaz-project\pizzaShop\sakhawat-latest\resources\views/include/messages.blade.php ENDPATH**/ ?>

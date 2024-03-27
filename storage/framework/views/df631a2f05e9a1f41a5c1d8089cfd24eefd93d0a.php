@@ -8,4 +8,4 @@
             </div>
         </div>
     </div>
-</div><?php /**PATH E:\projects\pos\sakhawat-latest\resources\views/layout/footer.blade.php ENDPATH**/ ?>
+</div><?php /**PATH C:\afraaz-project\pizzaShop\sakhawat-latest\resources\views/layout/footer.blade.php ENDPATH**/ ?>

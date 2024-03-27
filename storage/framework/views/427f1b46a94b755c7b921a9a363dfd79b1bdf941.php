@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>POS (Point of Sale Software) - A brand of WebEasy Pvt Limited.</title>
-    <meta name="description" content="">
+    <meta name="description" content="Moin Abbas">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- favicon
 		============================================ -->
@@ -53,6 +53,21 @@
     <!-- modernizr JS
 		============================================ -->
     <script src="<?php echo e(asset('js/vendor/modernizr-2.8.3.min.js')); ?>"></script>
+    <style>
+        .btn-dashboard {
+            width: 200px;   
+            height: 150px;
+            font-size: 20px;
+            line-height: 7;
+        }
+        .btn-default {
+            color: #fff;
+            width: 200px;
+            height: 150px;
+            font-size: 20px;
+            line-height: 7;
+        }
+    </style>
 </head>
 
 <body class="materialdesign">
@@ -63,7 +78,7 @@
         </div>
         <!-- Header top area start-->
         <div class="content-inner-all">
-            <?php echo $__env->make('layout.header-top-area', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            
             <!-- Header top area end-->
             <!-- Breadcome start-->
             <div class="breadcome-area mg-b-30 small-dn">
@@ -82,9 +97,9 @@
                                     </div>
                                     <div class="col-lg-6">
                                         <ul class="breadcome-menu">
-                                            <li><a href="<?php echo e(route('dashboard')); ?>">Home</a> <span class="bread-slash">/</span>
+                                            <li><a href="<?php echo e(route('admin-dashboard')); ?>">Home</a> <span class="bread-slash">/</span>
                                             </li>
-                                            <li><span class="bread-blod">Sales</span>
+                                            <li><span class="bread-blod">Dashboard</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -117,7 +132,7 @@
                                         <ul class="breadcome-menu">
                                             <li><a href="#">Home</a> <span class="bread-slash">/</span>
                                             </li>
-                                            <li><span class="bread-blod">Sales</span>
+                                            <li><span class="bread-blod">Dashboard</span>
                                             </li>
                                         </ul>
                                     </div>
@@ -128,125 +143,173 @@
                 </div>
             </div>
             <!-- Breadcome End-->
-            <!-- Sales Start-->
-            <div class="transition-world-area">
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area">
                 <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="transition-world-list shadow-reset">
-                                <div class="sparkline7-list">
-                                    <div class="sparkline7-hd">
-                                        <div class="main-spark7-hd">
-                                            <h1><span class="res-ds-n">Sales</span></h1>
-                                            <div class="sparkline7-outline-icon">
-                                                <span class="sparkline7-collapse-link"><i class="fa fa-chevron-up"></i></span>
-                                                <span><i class="fa fa-wrench"></i></span>
-                                                <span class="sparkline7-collapse-close"><i class="fa fa-times"></i></span>
+                 
+                        <div class="row" style="margin-bottom: 15px;">
+                            <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>Admin</b> Dashboard</h1>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Products</h2>
+                                            <div class="main-income-phara">
+                                                <p>Total</p>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="sparkline7-graph">
-
-                                        <!-- Search Sales -->
-                                        <div class="row" style="text-align: left;">
-                                          <form action="<?php echo e(route('sales.search-sales')); ?>" method="POST">
-                                            <?php echo csrf_field(); ?>
-                                            <div class="col-lg-3">
-                                                <div class="form-group">
-                                                  <label for="from">Start Date</label>
-                                                  <input type="date" class="form-control" value="<?php echo e($from); ?>" name="from" id="from" required>
-                                                </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($items); ?></span></h3>
                                             </div>
-                                            <div class="col-lg-3">
-                                              <div class="form-group">
-                                                <label for="to">End Date</label>
-                                                <input type="date" class="form-control" value="<?php echo e($to); ?>" name="to" id="to" required>
-                                              </div>
-                                            </div>
-                                            <div class="col-lg-1">
-                                              <label for="email">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                              <button type="submit" class="btn btn-default" style="color:#fff;">Search</button>
-                                            </div>
-                                          </form>
-                                        </div>
-                                        <!-- Search Sales End-->
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="datatable-dashv1-list custom-datatable-overright dashtwo-project-list-data">
-                                                    <table id="table" data-toggle="table" data-pagination="true" data-search="true" data-show-columns="true" data-resizable="true" data-cookie="true" data-page-size="5" data-page-list="[5, 10, 15, 20, 25]" data-cookie-id-table="saveId" data-show-export="true">
-                                                        <thead>
-                                                            <tr>
-                                                              <th data-field="id">Customer</th>
-                                                              <th data-field="date">Date</th>
-                                                              <th data-field="country">Total</th>
-                                                              <th data-field="sale tax">Sales Tax</th>
-                                                              <th data-field="previous">Previous Due</th>
-                                                              <th data-field="payment method">Discount</th>
-                                                              <th data-field="receivable">Receivable</th>
-                                                              <th data-field="received">Received</th>
-                                                              <th data-field="sale man">Sales Man</th>
-                                                              <th>Profit</th>
-                                                              <th data-field="action">Action</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <?php $__currentLoopData = $sales; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $sale): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                              <tr>
-                                                                <?php if($sale->walking_customer): ?>
-                                                                  <td><?php echo e($sale->walking_customer); ?></td>
-                                                                <?php else: ?>
-                                                                  <td><?php echo e($sale->customer['name']); ?></td>
-                                                                <?php endif; ?>
-                                                                  <td><?php echo e($sale->current_date); ?></td>
-                                                                  <td><?php echo e($sale->total_bill); ?></td>
-                                                                  <td><?php echo e($sale->sales_tax); ?> % : <?php echo e($sale->sales_tax_price); ?></td>
-                                                                  <td><?php echo e($sale->previous_due); ?></td>
-                                                                  <td>
-                                                                    <?php if($sale->discount_type): ?>
-                                                                      <?php if($sale->discount_type == 'perc'): ?>
-                                                                      <?php echo e($sale->discount); ?> %
-                                                                      <?php else: ?>
-                                                                      <?php echo e($sale->discount); ?> - PKR
-                                                                      <?php endif; ?>
-                                                                    <?php endif; ?>
-                                                                  </td>
-                                                                  <td><?php echo e($sale->receivable); ?></td>
-                                                                  <td><?php echo e($sale->received); ?></td>
-                                                                  <td><?php echo e($sale->user['name']); ?></td>
-                                                                  <td>
-                                                                    <?php
-                                                                        $pro = \App\Models\SaleItem::where('sale_id', $sale->id)->get();
-                                                                        $profit = 0;
-                                                                    ?>
-                                                                        <?php $__currentLoopData = $pro; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $item): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-                                                                            <?php
-                                                                                $profit += $item->profit;
-                                                                            ?>
-                                                                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                                        <?php echo e($profit); ?>
-
-                                                                  </td>
-                                                                  <td>
-                                                                    <a href="<?php echo e(route('sale.sale-detail', ['id'=>$sale->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-eye"></i></a>
-                                                                    
-                                                                    <a href="<?php echo e(route('sales-list-print-english', ['id' => $sale->id])); ?>" class="btn btn-primary btn-print" style="color: #fff;"><i class="fa fa-print"></i> Eng</a>
-                                                                  </td>
-                                                              </tr>
-                                                            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
                                             </div>
                                         </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total orders-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Purchases</h2>
+                                            <div class="main-income-phara order-cl">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span class="counter"><?php echo e($purchases); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline6"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range order-cl">
+                                            <p>New Orders</p>
+                                            <span class="income-percentange">66% <i class="fa fa-level-up"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total visitor-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Sales</h2>
+                                            <div class="main-income-phara visitor-cl">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span class="counter"><?php echo e($sales); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline2"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range visitor-cl">
+                                            <p>New Visitor</p>
+                                            <span class="income-percentange">55% <i class="fa fa-level-up"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total user-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Profit</h2>
+                                            <div class="main-income-phara low-value-cl">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span class="counter"><?php echo e($profit); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline5"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range low-value-cl">
+                                            <p>In first month</p>
+                                            <span class="income-percentange">33% <i class="fa fa-level-down"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total user-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Receivables</h2>
+                                            <div class="main-income-phara low-value-cl">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span class="counter"><?php echo e($receivables); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline4"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range low-value-cl">
+                                            <p>In first month</p>
+                                            <span class="income-percentange">33% <i class="fa fa-level-down"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <a href="" class="btn btn-success btn-dashboard">New Invoice</a>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="" class="btn btn-info btn-dashboard">New Purchase</a>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="" class="btn btn-warning btn-dashboard">Receivables</a>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="" class="btn btn-danger btn-dashboard">Purchases</a>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="" class="btn btn-default">Profit/Loss</a>
+                            </div>
+                            <div class="col-lg-2">
+                                <a href="" class="btn btn-info btn-dashboard">Products</a>
+                            </div>
+                        </div>
+                 
                 </div>
             </div>
-            <!-- Transitions End-->
         </div>
     </div>
     <!-- Footer Start-->
@@ -305,15 +368,9 @@
     <script src="<?php echo e(asset('js/data-table/bootstrap-table-resizable.js')); ?>"></script>
     <script src="<?php echo e(asset('js/data-table/colResizable-1.5.source.js')); ?>"></script>
     <script src="<?php echo e(asset('js/data-table/bootstrap-table-export.js')); ?>"></script>
-    <script src="<?php echo e(asset('js/jquery.printPage.js')); ?>"></script>
     <!-- main JS
 		============================================ -->
     <script src="<?php echo e(asset('js/main.js')); ?>"></script>
-    <script>
-      $(document).ready(function(){
-        $('.btn-print').printPage();
-      });
-    </script>
 </body>
 
-</html><?php /**PATH E:\projects\pos\sakhawat-latest\resources\views/sales/sale-search-result.blade.php ENDPATH**/ ?>
+</html><?php /**PATH C:\afraaz-project\pizzaShop\sakhawat-latest\resources\views/dashboard/dashboard.blade.php ENDPATH**/ ?>
