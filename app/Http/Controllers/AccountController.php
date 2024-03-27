@@ -59,39 +59,36 @@ class AccountController extends Controller
 
     public function delete_account(Request $request, $id){
         $account = Customer::find($id);
+
         // Delete Sale Account
         $account_sale = AccountSale::where('customer_id', $id)->get();
-        if(count($account_sale)>0){
+        if($account_sale){
             foreach($account_sale as $sale){
                 $sale->delete();
             }
         }
+
         // Delete Purchase Account
         $account_purchase = AccountPurchase::where('customer_id', $id)->get();
-        if(count($account_purchase)>0){
+        if($account_purchase){
             foreach($account_purchase as $purchase){
                 $purchase->delete();
             }
         }
+
         // Delete Sales & Sale Items
-        $sales = Sale::where('customer_id', $id)->with('sale_items')->get();
-        if(count($sales) > 0){
-            if(count($sales->sale_items)>0){
-                $sales->sale_items->delete();
-            }
-            $sales->delete();
-        }
+        $sales = Sale::where('customer_id', $id)->get();
+        $sales->sale_items->delete();
+        $sales->delete();
+
         // Delete Purchases & Purchase Items
         $purchases = Purchase::where('customer_id', $id)->get();
-        if(count($purchases) > 0){
-            if(count($purchases->purchase_item)>0){
-                $purchases->purchase_item->delete();
-            }
-            $purchases->delete();
-        }
+        $purchases->purchase_item->delete();
+        $purchases->delete();
+
         // Delete Account
         $account->delete();
-        $request->session()->flash('alert-success','Account removed successfully!.');
+        $request->session()->flash('alert-success', 'One account removed.');
         return back();
     }
 

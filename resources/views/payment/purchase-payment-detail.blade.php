@@ -156,9 +156,16 @@
                                                                 <th data-field="vendor">Date</th>
                                                                 <th data-field="total">Total</th>
                                                                 <th data-field="paid">Paid</th>
+                                                                @if($total - $paid < 0 )
+
+                                                                  <th data-field="payable">Receivable</th>
+                                                                
+                                                                @else
                                                                 <th data-field="payable">Payable</th>
+                                                                @endif
                                                                 {{-- <th>Action</th> --}}
                                                             </tr>
+                                                          
                                                         </thead>
                                                         <tbody>
                                                             @foreach ($payments as $key=>$payment)
@@ -171,12 +178,35 @@
                                                                     <td>{{ $payment->total }}</td>
                                                                     <td>{{ $payment->paid }}</td>
                                                                     <td class="text-success"><b>{{ $payment->balance }}</b></td>
+                                                                   
                                                                     {{-- <td>
                                                                       <a href="" class="btn btn-primary btn-add-sale-payment" data-id="{{ $payment->id }}" style="color: #fff;"><i class="fa fa-plus"></i></a>
                                                                     </td> --}}
                                                                 </tr>
                                                             @endforeach
+                                                           
+                                                              {{-- <td class="text-sucess" rowspan="2">{{$total}}</td>
+                                                              <td class="text-sucess">{{$paid}}</td>
+                                                              <td class="text-sucess">{{$total - $paid}}</td> --}}
+                                                            
                                                         </tbody>
+                                                        <tfoot>
+                                                          <tr>
+                                                            <td colspan="2"></td>
+                                                            <td colspan="2">Total</td>
+                                                            <td>{{ $total }}</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td colspan="2"></td>
+                                                            <td colspan="2">Total Paid</td>
+                                                            <td>{{ $paid }}</td>
+                                                          </tr>
+                                                          <tr>
+                                                            <td colspan="2"></td>
+                                                            <td colspan="2">balance</td>
+                                                            <td>{{ abs($total - $paid) }}</td>
+                                                          </tr>
+                                                        </tfoot>
                                                     </table>
                                                 </div>
                                             </div>

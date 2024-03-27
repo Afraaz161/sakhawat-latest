@@ -1,8 +1,9 @@
 <?php
 
-use App\Http\Controllers\TestUserController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SalesController;
+use Illuminate\Support\Facades\Artisan;
+use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +15,7 @@ use App\Http\Controllers\SalesController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::controller(TestUserController::class)->group(function () {
-    Route::get('test','index');
-});
+
 // Route::get('/', [App\Http\Controllers\FrontController::class, 'index'])->name('index');
 Route::get('/clear', function() {
     Artisan::call('cache:clear');
@@ -28,36 +27,19 @@ Route::get('/clear', function() {
 Route::post('/check-credentials', [App\Http\Controllers\FrontController::class, 'check_credentials'])->name('check-credentials');
 Route::get('/admin-logout', [App\Http\Controllers\FrontController::class, 'admin_logout'])->name('admin-logout');
 
-Route::get('/about-us', [App\Http\Controllers\FrontController::class, 'about_us'])->name('about-us');
-Route::get('/contact-us', [App\Http\Controllers\FrontController::class, 'contact_us'])->name('contact-us');
-Route::post('/contact-us-action', [App\Http\Controllers\FrontController::class, 'contact_us_action'])->name('contact-us-action');
-
 Route::get('/', [App\Http\Controllers\UserController::class, 'login_page'])->name('login-page');
-// Route::post('/admin-check-credentials', [App\Http\Controllers\UserController::class, 'admin_check_credentials'])->name('admin.check-credentials');
-// Route::get('/admin-logout', [App\Http\Controllers\FrontController::class, 'admin_logout'])->name('admin-logout');
 
 // Admin
 Route::get('/admin', [App\Http\Controllers\DashboardController::class, 'dashboard'])->name('admin-dashboard');
 Route::get('/profile', [App\Http\Controllers\DashboardController::class, 'profile'])->name('profile');
 Route::post('/update-profile', [App\Http\Controllers\DashboardController::class, 'updateProfile'])->name('update-user-profile');
 Route::get('/profile/remove-logo/{id}', [App\Http\Controllers\DashboardController::class, 'removeLogo'])->name('remove-logo');
-Route::get('/admin/front-sliders', [App\Http\Controllers\ItemController::class, 'front_sliders'])->name('front-sliders');
-Route::post('/admin/front-sliders-action', [App\Http\Controllers\ItemController::class, 'front_sliders_action'])->name('front-sliders-action');
-Route::get('/admin/front-sliders/delete-slider/{id}', [App\Http\Controllers\ItemController::class, 'delete_slider'])->name('front-slider-delete');
-Route::get('/admin/front-products', [App\Http\Controllers\ItemController::class, 'front_products'])->name('front-products');
-Route::post('/admin/front-products-action', [App\Http\Controllers\ItemController::class, 'front_products_action'])->name('front-products-action');
-Route::get('/admin/front-product-delete', [App\Http\Controllers\ItemController::class, 'front_product_delete'])->name('front-product-delete');
-Route::get('/admin/front-categories', [App\Http\Controllers\ItemController::class, 'front_categories'])->name('front-categories');
-Route::post('/admin/front-categories-action', [App\Http\Controllers\ItemController::class, 'front_categories_action'])->name('front-categories-action');
-Route::get('/admin/front-category-delete', [App\Http\Controllers\ItemController::class, 'front_category_delete'])->name('front-category-delete');
 
 /*-- Items Route --*/
 Route::get('/my-items', [App\Http\Controllers\ItemController::class, 'items'])->name('my-items');
 Route::get('/add-new-item/get-categories', [App\Http\Controllers\ItemController::class, 'get_categories'])->name('item.get-categories');
 Route::get('/add-new-item/get-subcategories', [App\Http\Controllers\ItemController::class, 'get_subcategories'])->name('item.get-subcategories');
-Route::get('/add-new-item/get-manufacture',[App\Http\Controllers\ItemController::class, 'get_manufacture'])->name('item.get-manufacture');
-Route::get('/add-new-item/get-brand',[App\Http\Controllers\ItemController::class, 'get_brand'])->name('item.get-brands');
-Route::post('/add-new-item/add-brand',[App\Http\Controllers\ItemController::class, 'add_brand'])->name('item.add-brand');
+
 
 Route::post('/add-new-item-action', [App\Http\Controllers\ItemController::class, 'add_new_item_action'])->name('items.add-item-action');
 Route::get('/items-list',[App\Http\Controllers\ItemController::class, 'view_items_list'])->name('items.view-items-list');
@@ -78,11 +60,10 @@ Route::post('/create-new-account', [App\Http\Controllers\AccountController::clas
 
 
 // Salesman
- Route::get('/users', [App\Http\Controllers\UserController::class, 'users'])->name('users');
+Route::delete('/users/del/{id}', [App\Http\Controllers\UserController::class, 'user_del'])->name('users.delete-user-account');
+ Route::get('/users', [App\Http\Controllers\NewUserController::class, 'users'])->name('users');
 Route::view('/user','users.users-list');
 Route::post('/users/new-user-action', [App\Http\Controllers\UserController::class, 'new_user_action'])->name('users.new-user-action');
-Route::get('/users/delete-account-action/{id}', [App\Http\Controllers\UserController::class, 'admin_account_delete'])->name('users.delete-user-account');
-
 
 
 // Categories
@@ -98,12 +79,6 @@ Route::get('/edit-subcategory', [App\Http\Controllers\CategoryController::class,
 Route::post('/update-subcategory', [App\Http\Controllers\CategoryController::class, 'update_subcategory'])->name('update-subcategory');
 Route::post('/new-subcategories-action', [App\Http\Controllers\CategoryController::class, 'new_subcategories_action'])->name('subcategories.new-subcategories-action');
 Route::get('/sub-categories/delete-subcategory/{id}', [App\Http\Controllers\CategoryController::class, 'delete_subcategory'])->name('subcategories.delete-subcategory');
-
-// Brands
-Route::get('/brands', [App\Http\Controllers\CategoryController::class, 'brands'])->name('brands');
-Route::get('/edit-brand', [App\Http\Controllers\CategoryController::class, 'edit_brand'])->name('edit-brand');
-Route::post('/update-brand', [App\Http\Controllers\CategoryController::class, 'update_brand'])->name('update-brand');
-Route::post('/new-brand-action', [App\Http\Controllers\CategoryController::class, 'new_brand_action'])->name('categories.new-brand-action');
 
 // ManuFactures
 Route::get('/manufactures', [App\Http\Controllers\CategoryController::class, 'manufactures'])->name('manufactures');
@@ -179,13 +154,6 @@ Route::get('/expenses-delete-expense/{id}', [App\Http\Controllers\ExpenseControl
 Route::post('/expenses/add-category', [App\Http\Controllers\ExpenseController::class, 'addCategory'])->name('expense.add-category');
 Route::get('/expenses/get-categories', [App\Http\Controllers\ExpenseController::class, 'getCategories'])->name('expense.get-categories');
 
-// Banks
-Route::get('/banks', [App\Http\Controllers\BankController::class, 'Banks_list'])->name('Banks');
-Route::post('/banks/add-bank-action', [App\Http\Controllers\BankController::class, 'add_bank_action'])->name('banks.add-bank-action');
-Route::post('/banks/tranfer-amount-into-today-sale', [App\Http\Controllers\BankController::class, 'tranfer_amount_into_today_sale'])->name('banks.tranfer-amount-into-today-sale');
-Route::get('/banks/delete-bank/{id}', [App\Http\Controllers\BankController::class, 'delete_bank'])->name('banks.delete-bank');
-Route::get('/banks/bank-transactions/{id}', [App\Http\Controllers\BankController::class, 'bank_transactions'])->name('bank.view-bank-detail');
-
 // Payments
 Route::get('/payments/purchase-payment', [App\Http\Controllers\PaymentController::class, 'purchase_payment'])->name('payment.purchase-payment');
 Route::get('/payments/purchase-payment-detail/{id}', [App\Http\Controllers\PaymentController::class, 'vendorPaymentDetail'])->name('vendor.view-payment-detail');
@@ -227,7 +195,7 @@ Route::post('/sales/search-result', [App\Http\Controllers\SearchController::clas
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard');
-Route::get('/produdts/{id}', [App\Http\Controllers\FrontController::class, 'category_product'])->name('category-product');
+
 
 Auth::routes();
 
@@ -265,10 +233,3 @@ Route::post('/reports/search-sale-analysis', [App\Http\Controllers\ReportControl
 Route::get('/reports/profit-report', [App\Http\Controllers\ReportController::class, 'profitReport'])->name('report.profit-report');
 Route::post('/reports/search-profit-report', [App\Http\Controllers\ReportController::class, 'searchProfitReport'])->name('report.search-profit-report');
 Route::get('/reports/view-profit-report/{id}', [App\Http\Controllers\ReportController::class, 'viewProfitReport'])->name('report.view-profit-report');
-
-
-// Bracodes
-Route::get('/generate-barcode', [App\Http\Controllers\BarcodeController::class, 'generateBarcode'])->name('generate-barcode');
-Route::get('/print-barcode', [App\Http\Controllers\BarcodeController::class, 'printBarcode'])->name('print-barcode');
-Route::post('/generate-barcode-action', [App\Http\Controllers\BarcodeController::class, 'generateBarcodeAction'])->name('generate-barcode-action');
-Route::post('/print-generated-barcode', [App\Http\Controllers\BarcodeController::class, 'printGeneratedBarcode'])->name('print-generated-barcode');
