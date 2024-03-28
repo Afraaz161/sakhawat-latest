@@ -18,12 +18,10 @@ use App\Models\SaleCart;
 use App\Models\SaleItem;
 use App\Models\SaleReturn;
 use App\Models\SaleReturnItem;
-use App\Models\Transaction;
 use App\Models\TransferSaleHistory;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Auth;
-use Picqer\Barcode\BarcodeGeneratorHTML;
 
 class SalesController extends Controller
 {
@@ -41,7 +39,7 @@ class SalesController extends Controller
         }
         $sale = Sale::with('sale_items', 'user', 'customer')->find($id);
         $categories = Category::all();
-        $items = Item::with(['category', 'manufacture'])->orderBy('id', 'Desc')->where('price', '!=', NULL)->get();
+        $items = Item::with(['category'])->orderBy('id', 'Desc')->where('price', '!=', NULL)->get();
         $customers = Customer::where('type', 'Customer')->orderBy('id', 'Desc')->get();
         return view('sales.edit-sale', ['sale' => $sale, 'items' => $items, 'customers' => $customers, 'categories' => $categories]);
     }
@@ -59,16 +57,6 @@ class SalesController extends Controller
                 'balance' => ($account->receivable - $account->received) - $account->balance,
             ]);
         }
-
-        // Update Stock
-        foreach($sale->sale_items as $item){
-            $database_item = Item::whereName($item->name)->first();
-            // dd($database_item);
-            Item::whereName($item->name)->update([
-                'stock' => $database_item->stock + $item->quantity,
-            ]);
-        }
-
         // Delete Sales Items
         $sale->sale_items()->delete();
         // Delete Sale
@@ -116,7 +104,7 @@ class SalesController extends Controller
         }
         // dd($invoice);
         $categories = Category::all();
-        $items = Item::with(['category', 'manufacture'])->orderBy('id', 'Desc')->where('price', '!=', NULL)->get();
+        $items = Item::with(['category'])->orderBy('id', 'Desc')->where('price', '!=', NULL)->get();
         $customers = Customer::where('type', 'Customer')->orderBy('id', 'Desc')->get();
         return view('sales.new-sale', ['items' => $items, 'customers' => $customers, 'invoice' => $invoice, 'categories' => $categories]);
     }
@@ -184,9 +172,7 @@ class SalesController extends Controller
         $item->required = $request->required;
         $item->description = $request->description;
         $item->unit = $request->unit;
-        $item->stock = $request->stock;
         $item->price = $request->rate;
-        $item->stock = 0;
         // upload multiple image
         if($request->file('image')){
             $image = $request->file('image');
@@ -197,11 +183,6 @@ class SalesController extends Controller
         else{
             $item->image = 'default_image.jpg';
         }
-        // $number = $request->sku;
-        // $generator = new BarcodeGeneratorHTML();
-        // $barcode = $generator->getBarcode($number, $generator::TYPE_CODE_128);
-        // $item->sku = $request->sku;
-        // $item->barcode = $barcode;
         $item->save();
         $items = Item::orderBy('id', 'Desc')->get();
         return view('sales.get-items', compact('items'));
@@ -226,20 +207,10 @@ class SalesController extends Controller
                 $sale_table->walking_customer = $request->customer;
             }
             $sale_table->invoice_no = $request->invoice;
-            $sale_table->gd_no = $request->gd;
             $sale_table->current_date = $request->current_date;
             $sale_table->payment_method = $request->payment_method;
             $sale_table->type = $request->type;
             $sale_table->total_bill = $request->total_bill;
-            $sale_table->previous_due = $request->previous_due;
-            if($request->discount_type){
-                $sale_table->discount_type = $request->discount_type;
-                $sale_table->discount = $request->discount;
-            }
-            $sale_table->sales_tax = $request->sales_tax;
-            $sale_table->sales_tax_price = $request->sales_tax_price;
-            $sale_table->charity = $request->charity;
-            $sale_table->receivable = $request->receivable;
             $sale_table->received = $request->received;
             $sale_table->remaining = $request->remaining;
             $sale_table->status = 'pending';
@@ -280,9 +251,6 @@ class SalesController extends Controller
                 $row['profit'] = $profit;
                 $sales[] = $row;
                 $item = Item::whereName($sale->name)->first();
-                Item::whereName($sale->name)->update([
-                    'stock' => $item->stock - $sale->quantity,
-                ]);
             }
             SaleItem::insert($sales);
         }

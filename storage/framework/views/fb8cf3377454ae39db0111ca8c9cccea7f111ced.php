@@ -178,8 +178,6 @@
                                                             <th data-field="item name">Item Name</th>
                                                             <th data-field="quantity">Quantity</th>
                                                             <th data-field="price">Price</th>
-                                                            
-                                                            
                                                             <th data-field="total">Total</th>
                                                         </tr>
                                                     </thead>
@@ -190,20 +188,7 @@
                                                 <div class="">
                                                     <div class="clear"></div>
                                                 </div>
-                                                <!-- <div class="row" style="margin-top: 20px;">
-                                                    <div class="col-lg-12">
-                                                        <input type="radio" id="perc-discount" name="discount_type" value="perc">
-                                                        <label for="perc-discount">% Discount</label>
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <label for="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                                                        <input type="number" value="0" class="form-control" name="discount" id="discount">
-                                                    </div>
-                                                    <div class="col-lg-2">
-                                                        <label for="charity">Charity</label>
-                                                        <input type="number" value="1" class="form-control" name="charity" id="charity">
-                                                    </div>
-                                                </div> -->
+                                                
                                                 
                                                 <div class="row" style="margin-top: 20px;">
                                                     <div class="col-lg-2">
@@ -212,10 +197,7 @@
                                                             <input type="number" class="form-control" value="0" name="total_bill" id="total_bill" readonly>
                                                         </div>
                                                     </div>
-                                                    <!-- <div class="col-lg-2">
-                                                        <label for="sales_tax_price">Sales Tax Price</label>
-                                                        <input type="number" value="0" class="form-control" name="sales_tax_price" id="sales_tax_price">
-                                                    </div> -->
+                                                    
                                                     <div class="col-lg-2">
                                                         <div class="form-group">
                                                             <label for="previous_due">Previous Due</label>
@@ -366,20 +348,8 @@
                         </div>
                         <div class="col-lg-12">
                             <div class="form-group">
-                                <label for="rate">Company Rate</label>
+                                <label for="rate">Item Rate</label>
                                 <input type="text" tabindex="9" class="form-control" name="rate" id="rate" value="<?php echo e(old('rate')); ?>" required>
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="stock">Stock</label>
-                                <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="<?php echo e(old('stock')); ?>">
-                            </div>
-                        </div>
-                        <div class="col-lg-12">
-                            <div class="form-group">
-                                <label for="reorder_value">Re-Order</label>
-                                <input type="text" tabindex="7" class="form-control" name="reorder_value" id="reorder_value" value="<?php echo e(old('reorder_value')); ?>">
                             </div>
                         </div>
                         <div class="col-lg-12">
@@ -387,13 +357,7 @@
                                 <label for="unit">Unit</label>
                                 <select name="unit" id="unit" class="form-control" required>
                                     <option>Choose Unit</option>
-                                    <option value="kg">Kg</option>
-                                    <option value="gram">Gram</option>
-                                    <option value="foot">Foot</option>
-                                    <option value="inch">Inch</option>
                                     <option value="piece">Piece</option>
-                                    <option value="cotton">Cotton</option>
-                                    <option value="dozen">Dozen</option>
                                     <option value="Liter">Liter</option>
                                 </select>
                             </div>
@@ -966,8 +930,6 @@
                 var category = $('#category').val();
                 var image = $('#image').val();
                 var rate = $('#rate').val();
-                var stock = $('#stock').val();
-                var reorder_value = $('#reorder_value').val();
                 var unit = $('#unit').val();
                 $.ajax({
                     url: "<?php echo e(route('sales.add-item')); ?>",
@@ -979,8 +941,6 @@
                         category: category,
                         image: image,
                         rate: rate,
-                        stock: stock, 
-                        reorder_value: reorder_value,
                         unit: unit,
                         },
                     success: function(data){

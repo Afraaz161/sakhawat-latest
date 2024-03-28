@@ -16,7 +16,6 @@ class CreateSalesTable extends Migration
         Schema::create('sales', function (Blueprint $table) {
             $table->id();
             $table->string('invoice_no')->nullable();
-            $table->string('gd_no')->nullable();
             $table->string('walking_customer')->nullable();
             $table->unsignedBigInteger('customer_id')->nullable();
             $table->foreign('customer_id')->references('id')->on('customers')->onDelete('cascade');
@@ -26,11 +25,6 @@ class CreateSalesTable extends Migration
             $table->string('total_bill')->nullable();
             $table->string('previous_due', 20)->nullable();
             $table->string('receivable', 20)->nullable();
-            $table->string('discount_type', 30)->nullable();
-            $table->string('discount', 30)->nullable();
-            $table->string('charity')->nullable();
-            $table->string('sales_tax')->nullable();
-            $table->string('sales_tax_price', 30)->nullable();
             $table->string('received', 20)->nullable();
             $table->string('remaining', 20)->nullable();
             $table->unsignedBigInteger('user_id')->nullable();

@@ -19,17 +19,10 @@ class CreateItemsTable extends Migration
             $table->unsignedBigInteger('category_id')->nullable();
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
             $table->string('price')->nullable();
-            $table->string('old_price')->nullable();
-            $table->string('sale_rate')->nullable();
-            $table->string('purchase_rate')->nullable();
-            $table->integer('reorder_value')->nullable();
             $table->string('required')->nullable();
             $table->string('image')->nullable();
-            $table->integer('stock')->nullable();
             $table->text('description')->nullable();
             $table->text('unit')->nullable();
-            $table->text('sku')->nullable();
-            $table->text('barcode')->nullable();
             $table->string('status')->default('ok');
             $table->timestamps();
         });
