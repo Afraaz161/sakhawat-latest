@@ -373,11 +373,7 @@
             $.get('{{ route("item.get-subcategories") }}', function(data){
                 $('#show-subcategories-section').empty().append(data);
             });
-            $.get('{{ route("item.get-manufacture") }}', function(data){
-                $('#show-manufacture-section').empty().append(data);
-            });
-
-
+            
             $('#btn-manufacture-submit').click(function(e){
                 e.preventDefault();
                 var manufacture = $('#add_manufacture').val();

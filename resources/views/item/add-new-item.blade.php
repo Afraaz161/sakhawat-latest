@@ -491,56 +491,7 @@
             });
             $.get('{{ route("item.get-subcategories") }}', function(data){
                 $('#show-subcategories-section').empty().append(data);
-            });
-            $.get('{{ route("item.get-manufacture") }}', function(data){
-                $('#show-manufacture-section').empty().append(data);
-            });
-            $.get('{{ route("item.get-brands") }}', function(data){
-                $('#show-brand-section').empty().append(data);
-            });
-
-
-            $('#btn-manufacture-submit').click(function(e){
-                e.preventDefault();
-                var manufacture = $('#add_manufacture').val();
-                $.ajax({
-                    url: "{{ route('item.add-manufacture') }}",
-                    type: "POST",   
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        name: manufacture,
-                        },
-                    success: function(data){
-                        $('#show-manufacture-section').empty().append(data);
-                        $("#myModal").modal('hide');
-                    },
-                    error: function(data){
-                        alert('Error.....!');
-                    }
-                });
-            });
-
-            $('#btn-brand-submit').click(function(e){
-                e.preventDefault();
-                var brand = $('#add_brand').val();
-                $.ajax({
-                    url: "{{ route('item.add-brand') }}",
-                    type: "POST",   
-                    data: {
-                        "_token": "{{ csrf_token() }}",
-                        name: brand,
-                        },
-                    success: function(data){
-                        $('#show-brand-section').empty().append(data);
-                        $("#myModalBrand").modal('hide');
-                    },
-                    error: function(data){
-                        alert('Error.....!');
-                    }
-                });
-            });
-
-
+            })
 
             $('#btn-category-submit').click(function(e){
                 e.preventDefault();

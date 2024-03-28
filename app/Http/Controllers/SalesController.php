@@ -298,6 +298,7 @@ class SalesController extends Controller
             $sale_table->receivable = $request->receivable;
             $sale_table->received = $request->received;
             $sale_table->remaining = $request->remaining;
+            $sale_table->status = $request->status;
             $sale_table->user_id = Auth::user()->id;
             $sale_table->save();
 

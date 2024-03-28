@@ -195,8 +195,7 @@
                                                                 <th data-field="invoice">Invoice#</th>
                                                                 <th data-field="id">Customer</th>
                                                                 <th data-field="date">Date</th>
-                                                                <th data-field="receivable">Receivable</th>
-                                                                <th data-field="received">Received</th>
+                                                                <th data-field="status">Status</th>
                                                                 <th data-field="country">Total</th>
                                                                 <th data-field="sale man">Sales Man</th>
                                                                 <th data-field="action">Action</th>
@@ -212,8 +211,7 @@
                                                                         <td>{{ $sale->customer['name'] }}</td>
                                                                     @endif
                                                                     <td>{{ $sale->current_date }}</td>
-                                                                    <td>{{ $sale->receivable }}</td>
-                                                                    <td>{{ $sale->received }}</td>
+                                                                    <td>{{ $sale->status }}</td>
                                                                     <td>{{ $sale->total_bill }}</td>
                                                                     <td>{{ $sale->user['name'] }}</td>
                                                                     <td>
@@ -221,10 +219,10 @@
                                                                             class="btn btn-primary" title="View Sale"
                                                                             style="color: #fff;"><i
                                                                                 class="fa fa-eye"></i></a>
-                                                                        {{-- <a href="{{ route('sale.sale-edit', ['id' => $sale->id]) }}"
+                                                                        <a href="{{ route('sale.sale-edit', ['id' => $sale->id]) }}"
                                                                             class="btn btn-primary" title="Edit Sale"
                                                                             style="color: #fff;"><i
-                                                                                class="fa fa-pencil"></i></a> --}}
+                                                                                class="fa fa-pencil"></i></a> 
                                                                         <a href="{{ route('sale.sale-delete', ['id' => $sale->id]) }}"
                                                                             class="btn btn-primary"
                                                                             title="Delete Sale"
