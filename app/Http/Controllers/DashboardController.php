@@ -20,11 +20,27 @@ class DashboardController extends Controller
         }
         $items = count(Item::all());
         $purchases = count(Purchase::all());
-        $sales = count(Sale::all());
+        $totalOrders = count(Sale::all());
+        $pendingOrders = Sale::where('status','pending')->count();
+        $deliveredOrders = Sale::where('status','delivered')->count();
+        $inProgressOrders = Sale::where('status','in_progress')->count();
+        $cancelledOrders = Sale::where('status','cancelled')->count();
+        $totalOrderAmounts = Sale::where('status','delivered')->sum('total_bill');
+
         $profit = SaleItem::sum('profit');
         $receivables = AccountSale::sum('balance');
       
-        return view('dashboard.dashboard', ['items' => $items, 'purchases' => $purchases, 'sales' => $sales, 'profit' => $profit, 'receivables' =>$receivables]);
+        return view('dashboard.dashboard', ['items' => $items,
+         'purchases' => $purchases, 
+        'totalOrders' => $totalOrders,
+        'pendingOrders' => $pendingOrders,
+        'deliveredOrders' => $deliveredOrders,
+        'inProgressOrders' => $inProgressOrders,
+        'cancelledOrders' => $cancelledOrders,
+        'totalOrderAmounts' => $totalOrderAmounts,
+        'profit' => $profit,
+         'receivables' =>$receivables
+        ]);
     }
 
     public function profile(){

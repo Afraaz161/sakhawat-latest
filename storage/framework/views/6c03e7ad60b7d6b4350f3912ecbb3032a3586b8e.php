@@ -165,17 +165,10 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label for="rate">Company Rate</label>
+                                                    <label for="rate">Item Price</label>
                                                     <input type="text" tabindex="9"  class="form-control" name="rate" id="rate" value="<?php echo e($item->price); ?>" required>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group">
-                                                    <label for="stock">Stock</label>
-                                                    <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="<?php echo e($item->stock); ?>">
-                                                </div>
-                                            </div>
-                                            
                                             <div class="col-lg-2">
                                                 <div class="form-group">
                                                     <label for="unit">Unit</label>
@@ -365,9 +358,7 @@
             $.get('<?php echo e(route("item.get-subcategories")); ?>', function(data){
                 $('#show-subcategories-section').empty().append(data);
             });
-           
-
-
+            
             $('#btn-manufacture-submit').click(function(e){
                 e.preventDefault();
                 var manufacture = $('#add_manufacture').val();

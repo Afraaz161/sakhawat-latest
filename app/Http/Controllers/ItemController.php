@@ -36,19 +36,16 @@ class ItemController extends Controller
             return redirect()->route('login-page');
         }
         $this->validate($request, [
-            // 'name' => 'required|unique:items',
-            // 'sku' => 'required',
             'rate' => 'required',
             'category' => 'required',
         ]);
         $item = new Item();
         $item->name = $request->name;
         $item->category_id = $request->category;
-        $item->reorder_value = $request->reorder_value;
         $item->required = $request->required;
         $item->description = $request->description;
         $item->unit = $request->unit;
-        $item->stock = $request->stock;
+        
         $item->price = $request->rate;
         $item->stock = 0;
         // upload multiple image
@@ -61,11 +58,7 @@ class ItemController extends Controller
         else{
             $item->image = 'default_image.jpg';
         }
-        // $number = $request->sku;
-        // $generator = new BarcodeGeneratorHTML();
-        // $barcode = $generator->getBarcode($number, $generator::TYPE_CODE_128);
-        // $item->sku = $request->sku;
-        // $item->barcode = $barcode;
+        
         $item->save();
         $request->session()->flash('alert-success', 'New item added.');
         return back();
@@ -134,12 +127,10 @@ class ItemController extends Controller
         Item::where('id', $id)->update([
             'name' => $request->name,
             'price' => $request->rate,
-            'stock' => $request->stock,
-            'reorder_value' => $request->reorder_value,
             'unit' => $request->unit,
         ]);
         $request->session()->flash('alert-success', 'Item updated successfully.');
-        return back();
+        return redirect()->route('my-items');
     }
 
     public function add_manufacture(Request $request){

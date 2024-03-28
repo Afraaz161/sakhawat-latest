@@ -151,6 +151,166 @@
                             <h1 class="text-center heading" style="font-size: 50px;">Welcome to <b>Admin</b> Dashboard</h1>
                         </div>
                         <div class="row">
+                        <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30 align-centre">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Total Sales</h2>
+                                            
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($totalOrderAmounts); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Total Orders</h2>
+                                            <div class="main-income-phara">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($totalOrders); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Pending Orders</h2>
+                                            <div class="main-income-phara">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($pendingOrders); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Delivered Orders</h2>
+                                            <div class="main-income-phara">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($deliveredOrders); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>In-Progress Orders</h2>
+                                            <div class="main-income-phara">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($inProgressOrders); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
+                                    <div class="income-title">
+                                        <div class="main-income-head">
+                                            <h2>Cancelled Orders</h2>
+                                            <div class="main-income-phara">
+                                                <p>Total</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="income-dashone-pro">
+                                        <div class="income-rate-total">
+                                            <div class="price-adminpro-rate">
+                                                <h3><span></span><span class="counter"><?php echo e($cancelledOrders); ?></span></h3>
+                                            </div>
+                                            <div class="price-graph">
+                                                <span id="sparkline1"></span>
+                                            </div>
+                                        </div>
+                                        <div class="income-range">
+                                            <p>Total income</p>
+                                            <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
+                                        </div>
+                                        <div class="clear"></div>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="col-lg-3">
                                 <div class="income-dashone-total income-monthly shadow-reset nt-mg-b-30">
                                     <div class="income-title">
@@ -173,88 +333,6 @@
                                         <div class="income-range">
                                             <p>Total income</p>
                                             <span class="income-percentange">98% <i class="fa fa-bolt"></i></span>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="income-dashone-total orders-monthly shadow-reset nt-mg-b-30">
-                                    <div class="income-title">
-                                        <div class="main-income-head">
-                                            <h2>Purchases</h2>
-                                            <div class="main-income-phara order-cl">
-                                                <p>Total</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="income-dashone-pro">
-                                        <div class="income-rate-total">
-                                            <div class="price-adminpro-rate">
-                                                <h3><span class="counter"><?php echo e($purchases); ?></span></h3>
-                                            </div>
-                                            <div class="price-graph">
-                                                <span id="sparkline6"></span>
-                                            </div>
-                                        </div>
-                                        <div class="income-range order-cl">
-                                            <p>New Orders</p>
-                                            <span class="income-percentange">66% <i class="fa fa-level-up"></i></span>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3">
-                                <div class="income-dashone-total visitor-monthly shadow-reset nt-mg-b-30">
-                                    <div class="income-title">
-                                        <div class="main-income-head">
-                                            <h2>Sales</h2>
-                                            <div class="main-income-phara visitor-cl">
-                                                <p>Total</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="income-dashone-pro">
-                                        <div class="income-rate-total">
-                                            <div class="price-adminpro-rate">
-                                                <h3><span class="counter"><?php echo e($sales); ?></span></h3>
-                                            </div>
-                                            <div class="price-graph">
-                                                <span id="sparkline2"></span>
-                                            </div>
-                                        </div>
-                                        <div class="income-range visitor-cl">
-                                            <p>New Visitor</p>
-                                            <span class="income-percentange">55% <i class="fa fa-level-up"></i></span>
-                                        </div>
-                                        <div class="clear"></div>
-                                    </div>
-                                </div>
-                            </div>
-                           
-                            <div class="col-lg-3">
-                                <div class="income-dashone-total user-monthly shadow-reset nt-mg-b-30">
-                                    <div class="income-title">
-                                        <div class="main-income-head">
-                                            <h2>Receivables</h2>
-                                            <div class="main-income-phara low-value-cl">
-                                                <p>Total</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="income-dashone-pro">
-                                        <div class="income-rate-total">
-                                            <div class="price-adminpro-rate">
-                                                <h3><span class="counter"><?php echo e($receivables); ?></span></h3>
-                                            </div>
-                                            <div class="price-graph">
-                                                <span id="sparkline4"></span>
-                                            </div>
-                                        </div>
-                                        <div class="income-range low-value-cl">
-                                            <p>In first month</p>
-                                            <span class="income-percentange">33% <i class="fa fa-level-down"></i></span>
                                         </div>
                                         <div class="clear"></div>
                                     </div>

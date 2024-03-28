@@ -180,31 +180,12 @@
                                           <div class="col-lg-12">
                                             <div class="form-group">
                                               <label for="type">Type</label>
-                                              @if($account->type=="Customer")
                                               <select name="type" id="type" class="form-control">
                                                 <option value="{{ $account->type }}" selected>{{ $account->type }}</option>
                                                 <option value="Customer">Customer</option>
                                               </select>
-                                              @else
-                                              <select name="type" id="type" class="form-control">
-                                                <option value="{{ $account->type }}" selected>{{ $account->type }}</option>
-                                                <option value="Customer">Vendor</option>
-                                              </select>
-                                              @endif
-                                            </div>
+                                             </div>
                                           </div>
-                                          <!-- <div class="col-lg-12">
-                                            <div class="form-group">
-                                              <label for="ntn">NTN#</label>
-                                              <input type="text" name="ntn" value="{{$account->ntn_no}}" class="form-control" id="ntn">
-                                            </div>
-                                          </div>
-                                          <div class="col-lg-12">
-                                            <div class="form-group">
-                                              <label for="sales_tax">Sales Tax #</label>
-                                              <input type="text" name="sales_tax" value="{{$account->sales_tax_no}}" class="form-control" id="sales_tax">
-                                            </div>
-                                          </div> -->
                                         </div>
                                         <button type="submit" class="btn btn-primary btn-submit">Submit</button>
                                     </form>

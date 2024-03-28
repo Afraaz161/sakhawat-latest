@@ -183,7 +183,7 @@
                                                                     @php
                                                                         $item = \App\Models\Item::whereName($sale->name)->first();
                                                                     @endphp
-                                                                    <td><span class="badge">{{ $item->category['name'] }}</span></td>
+                                                                    <td><span class="badge">{{ $item->category['name'] ?? "Temp" }}</span></td>
                                                                     <td>{{ $sale->price }}</td>
                                                                     <td>{{ $sale->quantity }}</td>
                                                                     <td>{{ $sale->total }}</td>

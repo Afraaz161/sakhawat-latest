@@ -165,22 +165,10 @@
                                         <div class="row">
                                             <div class="col-lg-4">
                                                 <div class="form-group">
-                                                    <label for="rate">Company Rate</label>
+                                                    <label for="rate">Item Price</label>
                                                     <input type="text" tabindex="9"  class="form-control" name="rate" id="rate" value="{{ $item->price }}" required>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-4">
-                                                <div class="form-group">
-                                                    <label for="stock">Stock</label>
-                                                    <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="{{ $item->stock }}">
-                                                </div>
-                                            </div>
-                                            {{-- <div class="col-lg-2">
-                                                <div class="form-group">
-                                                    <label for="reorder_value">Re-Order Value</label>
-                                                    <input type="text" tabindex="7" value="{{ $item->reorder_value }}" class="form-control" name="reorder_value" id="reorder_value" value="{{ old('reorder_value') }}">
-                                                </div>
-                                            </div> --}}
                                             <div class="col-lg-2">
                                                 <div class="form-group">
                                                     <label for="unit">Unit</label>

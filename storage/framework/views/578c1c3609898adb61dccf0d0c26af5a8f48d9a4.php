@@ -180,7 +180,7 @@
                                                                     <?php
                                                                         $item = \App\Models\Item::whereName($sale->name)->first();
                                                                     ?>
-                                                                    <td><span class="badge"><?php echo e($item->category['name']); ?></span></td>
+                                                                    <td><span class="badge"><?php echo e($item->category['name'] ?? "Temp"); ?></span></td>
                                                                     <td><?php echo e($sale->price); ?></td>
                                                                     <td><?php echo e($sale->quantity); ?></td>
                                                                     <td><?php echo e($sale->total); ?></td>

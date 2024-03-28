@@ -149,12 +149,11 @@
                                                     <button type="button" id="add_new_category" class="btn btn-primary" data-toggle="modal" data-target="#myModalCategory"><i class="fa fa-plus"></i></button>
                                                 </div>
                                             </div>
-                                            
                                         </div>
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="name">Product name</label>
+                                                    <label for="name">Item name</label>
                                                     <input type="text" tabindex="1" class="form-control" name="name" id="name" autofocus required>
                                                 </div>
                                             </div>
@@ -168,18 +167,11 @@
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="form-group">
-                                                    <label for="rate">Product Price</label>
+                                                    <label for="rate">Item Price</label>
                                                     <input type="text" tabindex="9" class="form-control" name="rate" id="rate" value="<?php echo e(old('rate')); ?>" required>
                                                 </div>
                                             </div>
-                                            <div class="col-lg-12">
-                                                <div class="form-group">
-                                                    <label for="stock">Stock</label>
-                                                    <input type="text" tabindex="9" class="form-control" name="stock" id="stock" value="<?php echo e(old('stock')); ?>">
-                                                </div>
-                                            </div>
-                                            
-                                            <div class="col-lg-12">
+                                             <div class="col-lg-12">
                                                 <div class="form-group">
                                                     <label for="unit">Unit</label>
                                                     <select name="unit" id="unit" class="form-control" required>
@@ -228,8 +220,7 @@
                                                                 <th>Image</th>
                                                                 <th data-field="item name">Item Name</th>
                                                                 <th data-field="Brand">Category</th>
-                                                                
-                                                                <th data-field="rate">Company Rate</th>
+                                                                <th data-field="rate">Item Price</th>
                                                                 <th data-field="actions">Actions</th>
                                                             </tr>
                                                         </thead>
@@ -243,11 +234,10 @@
                                                                     <td style="text-align: center;"><img src="<?php echo e(asset('items/').'/'.$item->image); ?>" alt="" style="width:50px;"></td>
                                                                     <td><?php echo e($item->name); ?></td>
                                                                     <td><?php echo e($item->category['name']); ?></td>
-                                                                    
                                                                     <td><?php echo e($item->price); ?></td>
                                                                     <td>
                                                                         <a href="<?php echo e(route('item.edit-item', ['id'=>$item->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-pencil"></i></a>
-                                                                        <a href="<?php echo e(route('item.delete-item', ['id'=>$item->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a>
+                                                                        <!-- <a href="<?php echo e(route('item.delete-item', ['id'=>$item->id])); ?>" class="btn btn-primary" style="color: #fff;"><i class="fa fa-trash"></i></a> -->
                                                                     </td>
                                                                 </tr>
                                                             <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
@@ -435,26 +425,7 @@
         $(document).ready(function(){
             var num = Math.floor(Math.random() * (1000000000000 - 0) + 0 );
             $('#sku').val(num);
-
-            // function restrictInputOtherThanArabic($field){
-            //     // Arabic characters fall in the Unicode range 0600 - 06FF
-            //     var arabicCharUnicodeRange = /[\u0600-\u06FF]/;
-            //     $field.bind("keypress", function(event)
-            //     {
-            //         var key = event.which;
-            //         if (key==8 || key==0 || key === 32){
-            //             return true;
-            //         }
-            //         var str = String.fromCharCode(key);
-            //         if (arabicCharUnicodeRange.test(str) ){
-            //             return true;
-            //         }
-            //         return false;
-            //     });
-            // }
-            // restrictInputOtherThanArabic($('#urdu_name'));
-
-            $.get('<?php echo e(route("item.get-categories")); ?>', function(data){
+             $.get('<?php echo e(route("item.get-categories")); ?>', function(data){
                 $('.show-categories-section').empty().append(data);
             });
             $.get('<?php echo e(route("item.get-subcategories")); ?>', function(data){

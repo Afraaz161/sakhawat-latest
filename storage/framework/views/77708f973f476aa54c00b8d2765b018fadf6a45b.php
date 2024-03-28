@@ -76,10 +76,18 @@
         <div class="left-sidebar-pro">
             <?php echo $__env->make('layout.left-sidebar', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
         </div>
+        <!-- Header top area start-->
         <div class="content-inner-all">
             <?php echo $__env->make('layout.header-top-area', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-              <?php echo $__env->make('layout.mobile-menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
-              <div class="income-order-visit-user-area" style="margin-top: 30px;">
+            <!-- Header top area end-->
+            <!-- Mobile Menu start -->
+            <?php echo $__env->make('layout.mobile-menu', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <!-- Mobile Menu end -->
+            <!-- Breadcome start-->
+            
+            <!-- Breadcome End-->
+            <!-- income order visit user Start -->
+            <div class="income-order-visit-user-area" style="margin-top: 30px;">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-12">
@@ -99,29 +107,133 @@
                                                 <label for="invoice">Invoice#<label>
                                                 <input type="number" value="<?php echo e($sale->invoice_no); ?>" class="form-control" name="invoice" id="invoice" disabled>
                                             </div>
+                                            <!-- <div class="col-lg-2 col-sm-12" style="margin-top: 4px;">
+                                                <label for="gd">GD#&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label>
+                                                <input type="number" value="<?php echo e($sale->gd_no); ?>" class="form-control" name="gd" id="gd">
+                                            </div> -->
+                                            <!-- <div class="col-lg-1">
+                                                <label for="sales_tax">Sales Tax (%)</label>
+                                                <input type="number" value="<?php echo e($sale->sales_tax); ?>" class="form-control" name="sales_tax" id="sales_tax">
+                                            </div> -->
+                                            <div class="col-lg-4" id="show-vendors-section">
+
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <div class="form-group">
+                                                    <label for="add_new_vendor">Add New&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                    <button type="button" id="add_new_vendor" class="btn btn-primary" data-toggle="modal" data-target="#myModalVendor"><i class="fa fa-plus"></i> Add new</button>
+                                                </div>
+                                            </div>
                                             <div class="col-lg-3">
                                                 <div class="form-group">
                                                     <label for="current_date">Date</label>
                                                     <input type="date" class="form-control" value="<?php echo e($sale->current_date); ?>" name="current_date" id="current_date">
                                                 </div>
                                             </div>
+                                            
+                                            
                                         </div>
-                                        
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <div class="form-group">
+                                                    <label for="Add-new-product">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                    <a href="#" type="button" id="btn-add-new-product" data-toggle="modal" data-target="#myModalItem" class="btn btn-primary"><i class="fa fa-plus"> Add Product</i></a>
+                                                    
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-5" id="show-items-section">
+                                                
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <div class="form-group">
+                                                    <label for="quantity">Quantity</label>
+                                                    <input type="text" class="form-control" tabindex="2"  value="1" name="quantity" id="quantity">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-2">
+                                                <div class="form-group">
+                                                    <label for="price">Price</label>
+                                                    <input type="number" class="form-control" value="0" name="price" id="price">
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-1">
+                                                <div class="form-group">
+                                                    <label for="opening_stock">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                    <a href="#" type="button" tabindex="3" id="btn-add-in-list" class="btn btn-primary">Add Item</a>
+                                                </div>
+                                            </div>
+                                        </div>
                                         <div class="row" style="margin-bottom: 10px;">
                                             <div class="col-lg-12">
-                                                 <div class="row" style="margin-top: 20px;">
+                                                <table id="table1" class="focusguard-2" tabindex="4" data-toggle="table" data-pagination="false" data-search="false" data-show-columns="false" data-resizable="false" data-cookie="true" data-page-size="5" data-page-list="[5, 10, 15, 20, 25]" data-cookie-id-table="saveId" data-show-export="false">
+                                                    <thead>
+                                                        <tr>
+                                                            <th data-field="state"></th>
+                                                            <th data-field="item name">Item Name</th>
+                                                            <th data-field="quantity">Quantity</th>
+                                                            <th data-field="price">Price</th>
+                                                            <th data-field="total">Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    
+                                                    <tbody id="session-items">
+                                                        
+                                                    </tbody>
+                                                </table>
+                                                <div class="">
+                                                    <div class="clear"></div>
+                                                </div>
+                                                <!-- <div class="row" style="margin-top: 20px;">
+                                                    <div class="col-lg-12">
+                                                        <input type="radio" id="perc-discount" name="discount_type" value="perc" <?php if($sale->discount) echo 'checked' ?>>
+                                                        <label for="perc-discount">% Discount</label>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</label>
+                                                        <input type="number" value="<?php echo e($sale->discount); ?>" class="form-control" name="discount" id="discount">
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <label for="charity">Charity</label>
+                                                        <input type="number" value="<?php echo e($sale->charity); ?>" class="form-control" name="charity" id="charity">
+                                                    </div>
+                                                </div> -->
+                                                
+                                                <div class="row" style="margin-top: 20px;">
                                                     <div class="col-lg-2">
                                                         <div class="form-group">
                                                             <label for="price">Total Bill</label>
                                                             <input type="number" class="form-control" name="total_bill" id="total_bill" readonly>
                                                         </div>
                                                     </div>
-                                                         <div class="col-lg-2">
+                                                    <!-- <div class="col-lg-2">
+                                                        <label for="sales_tax_price">Sales Tax Price</label>
+                                                        <input type="number" class="form-control" name="sales_tax_price" id="sales_tax_price">
+                                                    </div> -->
+                                                    <div class="col-lg-2">
                                                         <div class="form-group">
-                                                            <label for="status">Order Status</label>
-                                                            <input type="string" class="form-control" value="<?php echo e($sale->status); ?>" name="status" id="status">
+                                                            <label for="previous_due">Previous Due</label>
+                                                            <input type="number" class="form-control" value="0" name="previous_due" id="previous_due" readonly>
                                                         </div>
-                                            </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="receivable">Receivable</label>
+                                                            <input type="number" class="form-control" name="receivable" id="receivable" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="received">Received</label>
+                                                            <input type="number" class="form-control" name="received" id="received">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-2">
+                                                        <div class="form-group">
+                                                            <label for="remaining">Balance</label>
+                                                            <input type="number" class="form-control" value="<?php echo e($sale->remaining); ?>" name="remaining" id="remaining">
+                                                        </div>
+                                                    </div>
+                                                    
                                                 </div>
                                         
                                                 <div class="row">
@@ -610,7 +722,6 @@
                 var discount_type = $("input[name='discount_type']:checked").val();
                 var discount = $('#discount').val();
                 var remaining = $('#remaining').val();
-                var status = $('#status').val();
 
                 if(discount_type != undefined){
                     if(discount == ''){
@@ -644,7 +755,6 @@
                         discount_type: discount_type,
                         discount: discount,
                         remaining: remaining,
-                        status: status,
                         },
                     success:function(data){
                         // alert(data);
@@ -745,6 +855,7 @@
                     data: {id:id},
                     success: function(data){
                             document.querySelector("#price").value = (data.price);
+                            // document.querySelector("#new-price").value = (data.price);
                     },
                     error: function(data){
                         alert('Error...!');
@@ -808,6 +919,7 @@
             $('#btn-item-submit').click(function(e){
                 e.preventDefault();
                 var name = $('#name').val();
+                // var sku = $('#sku').val();
                 var category = $('#category').val();
                 var image = $('#image').val();
                 var rate = $('#rate').val();
@@ -820,6 +932,7 @@
                     data: {
                         "_token": "<?php echo e(csrf_token()); ?>",
                         name: name,
+                        // sku: sku,
                         category: category,
                         image: image,
                         rate: rate,
@@ -836,6 +949,8 @@
                     }
                 });
             });
+
+
         });
     </script>
 </body>

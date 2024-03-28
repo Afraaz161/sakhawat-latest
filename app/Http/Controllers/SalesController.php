@@ -214,64 +214,8 @@ class SalesController extends Controller
 
     public function new_sale_action(Request $request){
         $sale_cart = SaleCart::where(['user_id'=>Auth::user()->id])->get();
-        // SALE RETURN FUNCTIONS
-        if($request->type == 'return'){
-            if($sale_cart){
-
-                $sale_return_tbl = new SaleReturn();
-                if($request->customer != 'abc'){
-                    $sale_return_tbl->customer_id = $request->customer;
-                }
-                else{
-                    $sale_return_tbl->walking_customer = $request->customer;
-                }
-                $sale_return_tbl->current_date = $request->current_date;
-                $sale_return_tbl->payment_method = $request->payment_method;
-                $sale_return_tbl->type = $request->type;
-                $sale_return_tbl->total_bill = $request->total_bill;
-                $sale_return_tbl->previous_due = $request->previous_due;
-                $sale_return_tbl->receivable = $request->receivable;
-                if($request->discount_type){
-                    $sale_return_tbl->discount_type = $request->discount_type;
-                    $sale_return_tbl->discount = $request->discount;
-                }
-                $sale_return_tbl->received = $request->received;
-                // $sale_return_tbl->remaining = $request->remaining;
-                $sale_return_tbl->user_id = Auth::user()->id;
-                $sale_return_tbl->save();
-
-                $salesReturn = [];
-                foreach($sale_cart as $id=>$sale){
-                    $itm = Item::whereName($sale->name)->first();
-                    $row = [];
-                    $row['sale_return_id'] = $sale_return_tbl->id;
-                    $row['brand_id'] = $itm->brand_id;
-                    $row['name'] = $sale->name;
-                    $diff = $sale->price - $itm->price;
-                    $profit = $diff * $sale->quantity;
-                    $row['price'] = $sale->price;
-                    $row['discount'] = $sale->discount;
-                    $row['new_price'] = $sale->new_price;
-                    $row['quantity'] = $sale->quantity;
-                    $row['total'] = $sale->total;
-                    $row['profit'] = $profit;
-                    $salesReturn[] = $row;
-                    $item = Item::whereName($sale->name)->first();
-                    Item::whereName($sale->name)->update([
-                        'stock' => $item->stock + $sale->quantity,
-                    ]);
-                }
-                SaleReturnItem::insert($salesReturn);
-                $rows = SaleCart::where('user_id', Auth::user()->id)->get();
-                foreach($rows as $row){
-                    $row->delete();
-                }
-                return 'Thank you..!';
-            }
-
-
-        }
-
+        
+        
         // NEW SALE FUNCTIONS
         if($sale_cart){
             $sale_table = new Sale();
@@ -298,7 +242,7 @@ class SalesController extends Controller
             $sale_table->receivable = $request->receivable;
             $sale_table->received = $request->received;
             $sale_table->remaining = $request->remaining;
-            $sale_table->status = $request->status;
+            $sale_table->status = 'pending';
             $sale_table->user_id = Auth::user()->id;
             $sale_table->save();
 
