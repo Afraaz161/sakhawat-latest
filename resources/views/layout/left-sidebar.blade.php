@@ -25,7 +25,7 @@
                 <a href="{{ route('my-items') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-list-alt"></i> <span class="mini-dn">Items</span></a>
             </li>
             <li class="nav-item">
-                <a href="{{ route('accounts') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Accounts</span></a>
+                <a href="{{ route('accounts') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Create Customer</span></a>
             </li>
             <li class="nav-item">
                 <a href="{{ route('users') }}" class="nav-link dropdown-toggle"><i class="fa big-icon fa-users"></i> <span class="mini-dn">Users</span></a>
@@ -33,9 +33,9 @@
             @endif
             <li class="nav-item"><a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link dropdown-toggle"><i class="fa big-icon fa-shopping-cart"></i> <span class="mini-dn">Sales</span> <span class="indicator-right-menu mini-dn"><i class="fa indicator-mn fa-angle-left"></i></span></a>
                 <div role="menu" class="dropdown-menu left-menu-dropdown animated flipInX">
-                    <a href="{{ route('sales.new-sale') }}" class="dropdown-item">New Sale</a>
+                    <a href="{{ route('sales.new-sale') }}" class="dropdown-item">New Order</a>
                     @if (Auth::user()->type == 'Admin')
-                    <a href="{{ route('sales.sales-list') }}" class="dropdown-item">Sales List</a>
+                    <a href="{{ route('sales.sales-list') }}" class="dropdown-item">Orders List</a>
                     @endif
                 </div>
             </li>

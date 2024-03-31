@@ -78,17 +78,15 @@ class AccountController extends Controller
 
         // Delete Sales & Sale Items
         $sales = Sale::where('customer_id', $id)->get();
-        $sales->sale_items->delete();
-        $sales->delete();
-
-        // Delete Purchases & Purchase Items
-        $purchases = Purchase::where('customer_id', $id)->get();
-        $purchases->purchase_item->delete();
-        $purchases->delete();
-
+    
+        if($sales){
+             foreach($sales as $sale){
+                $sale->delete();
+             }
+        }
         // Delete Account
         $account->delete();
-        $request->session()->flash('alert-success', 'One account removed.');
+        $request->session()->flash('alert-success', 'Customer account removed.');
         return back();
     }
 
@@ -121,11 +119,7 @@ class AccountController extends Controller
         $account_sale->customer_id = $account->id;
         $account_sale->description = 'Opening Balance';
         $account_sale->save();
-
-        $account_transfer = new AccountTransfer();
-        $account_transfer->customer_id = $account->id;
-        $account_transfer->save();
-        $request->session()->flash('alert-success', 'New account created.');
+        $request->session()->flash('alert-success', 'New Customer Account created.');
         return back();
     }
 }
